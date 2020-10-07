@@ -7,6 +7,11 @@ class M_kelas extends CI_Model
         $hsl = $this->db->get('kelas');
         return $hsl;
     }
+    function get_all_kelas_limit3()
+    {
+        $hsl = $this->db->query("SELECT * FROM kelas LIMIT 3")->result_array();;
+        return $hsl;
+    }
 
     function get_kelasById($id)
     {

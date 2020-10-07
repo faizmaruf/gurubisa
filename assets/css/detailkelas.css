@@ -1,0 +1,126 @@
+/* //mixin
+@mixin align-horizontal {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+
+
+
+.iframesize {
+    width: 100%;
+    height: 100%;
+}
+
+.container-laptop {
+    margin: auto;
+    width: 560px;
+    height: 350px;
+}
+
+.laptop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #89c9e5;
+    border: 15px solid #3f3f41;
+    border-top: 20px solid #3f3f41;
+    border-radius: 14px 14px 0 0;
+    margin: 0 0 90px 0;
+    box-shadow: 0 0 0 1px #d1d2d4;
+
+}
+
+.laptop::before {
+    content: '';
+    bottom: -35px;
+    background: #e6e8e7;
+    height: 20px;
+    width: 700px;
+    border-radius: 0 0 10px 10px;
+    /* @include align-horizontal; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.laptop::after {
+    content: '';
+    top: -12px;
+    width: 3px;
+    height: 3px;
+    background: #e6e8e7;
+    border-radius: 50%;
+    /* @include align-horizontal; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.base {
+    bottom: -25px;
+    background: #d1d2d4;
+    height: 10px;
+    width: 700px;
+    /* @include align-horizontal; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.base::before {
+    content: '';
+    border-radius: 0 0 10px 10px;
+    height: 10px;
+    width: 80px;
+    background: #bcbdc1;
+    /* @include align-horizontal; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.base::after {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 700px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 10px 36px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .laptop {
+
+        border-radius: 14px;
+
+
+    }
+
+    .laptop::before {
+        content: '';
+        display: none;
+    }
+
+    .laptop::after {
+        content: '';
+        display: none;
+    }
+
+    .base {
+        display: none;
+    }
+
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {}
