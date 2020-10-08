@@ -56,7 +56,7 @@
                                 <div class="col nama-kelas"><?= $d['nama_kelas'] ?></div>
                             </div>
                             <div class="row width100 mt-4">
-                                <a href="#" class="col daftar-sekarang">Daftar Sekarang &nbsp;
+                                <a href="<?php echo site_url() . 'detail' ?>?id_kelas=<?= $d['id_kelas'] ?>&nama_kelas=<?= $d['nama_kelas'] ?>&deskripsi_kelas=<?= $d['deskripsi_kelas'] ?>&image_kelas=<?= $d['image_kelas'] ?>&video_kelas=<?= $d['video_kelas'] ?>&id_mentor=<?= $d['id_mentor'] ?> &nama_mentor=<?= $d['nama_mentor'] ?> &mentor_image=<?= $d['mentor_image'] ?> &profesi_mentor=<?= $d['profesi_mentor'] ?>" class="col daftar-sekarang">Daftar Sekarang &nbsp;
                                     &nbsp;
                                     <i class="fa fa-long-arrow-right" style="color: #635DFF; opacity: 76%; font-weight: lighter;"></i></a>
                             </div>
@@ -89,6 +89,7 @@
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="container p-3 " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500"><img class="hvr-grow" src="<?= base_url('assets/'); ?>images/Video.png" alt="images/Video" width="100%"></div>
     </div>
@@ -126,3 +127,11 @@
 </body>
 
 </html>
+<!-- href="v_detailkelas.php?id_kelas=<?= $d['kelas'] ?>&nama_kelas=<?= $d['nama_kelas'] ?>&deskripsi_kelas=<?= $d['deskripsi_kelas'] ?>&image_kelas=<?= $d['image_kelas'] ?>&video_kelas=<?= $d['video_kelas'] ?>&id_mentor=<?= $d['id_mentor'] ?> &nama_mentor=<?= $d['nama_mentor'] ?> &mentor_image=<?= $d['mentor_image'] ?> &profesi_mentor=<?= $d['profesi_mentor'] ?>" class="col daftar-sekarang"
+
+ddd
+
+
+<a href="<?php echo site_url() . 'detail' ?>?id_kelas=<?= $d['id_kelas'] ?>&nama_kelas=<?= $d['nama_kelas'] ?>&deskripsi_kelas=<?= $d['deskripsi_kelas'] ?>&image_kelas=<?= $d['image_kelas'] ?>&video_kelas=<?= $d['video_kelas'] ?>&id_mentor=<?= $d['id_mentor'] ?> &nama_mentor=<?= $d['nama_mentor'] ?> &mentor_image=<?= $d['mentor_image'] ?> &profesi_mentor=<?= $d['profesi_mentor'] ?>" class="col daftar-sekarang">Daftar Sekarang &nbsp; -->
+<!-- 
+href="<?php echo site_url() . 'detail.php/nyoba' ?>/<?= $d['id_kelas'] ?>/<?= $d['nama_kelas'] ?>/<?= $d['deskripsi_kelas'] ?>/<?= $d['image_kelas'] ?>/<?= $d['video_kelas'] ?>/<?= $d['id_mentor'] ?> /<?= $d['nama_mentor'] ?> /<?= $d['mentor_image'] ?> /<?= $d['profesi_mentor'] ?>" -->
