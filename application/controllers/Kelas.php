@@ -12,7 +12,7 @@ class Kelas extends CI_Controller
     }
     public function index()
     {
-        $x['data'] = $this->m_kelas->get_all_kelas_limit3();
+        $x['data'] = $this->m_kelas->get_all_kelas();
         $x['activenavbar'] =  'Kelas';
         $this->load->view('v_kelas', $x);
     }

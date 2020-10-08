@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuruBisa</title>
+    <link rel="icon" href="<?= base_url('assets/images/Logo GuruBisa/4.png'); ?>"" type=" image/gif" sizes="16x16">
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/custom.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/detailkelas.css'); ?>">

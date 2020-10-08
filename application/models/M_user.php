@@ -16,7 +16,7 @@ class M_user extends CI_Model
 
     function simpan_user($data)
     {
-        $this->db->insert('tbl_user', $data);
+        $this->db->insert('user', $data);
     }
 
 
@@ -26,7 +26,7 @@ class M_user extends CI_Model
     function update_user($where, $data)
     {
         $this->db->where($where);
-        $this->db->update("tbl_user", $data);
+        $this->db->update("user", $data);
     }
 
     //END UPDATE user//

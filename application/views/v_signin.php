@@ -20,7 +20,7 @@
                     <div class="text-buatakun">Akun GuruBisa </div>
                 </div>
                 <div>
-                    <form action="/action_page.php">
+                    <form action="<?= site_url('Signin/masuk'); ?>">
                         <div class="mt-5">
                             <label for="email"></label>
                             <input type="email" class="form-control" name="email" placeholder="Alamat Email" id="email">

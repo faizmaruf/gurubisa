@@ -18,22 +18,22 @@
                     <div class="text-registrasi">Registrasi Akun GuruBisa</div>
                     <div class="text-buatakun">Buat Akun GuruBisa Gratis</div>
                 </div>
-                <form action="/action_page.php">
+                <form action="<?= site_url('Signup/daftar'); ?>" method="post" enctype="multipart/form-data">
                     <div>
                         <label for="nama"></label>
-                        <input type="nama" class="form-control" name="name" placeholder="Nama Lengkap" id="nama">
+                        <input type="nama" class="form-control" name="xname" placeholder="Nama Lengkap" id="nama">
                     </div>
                     <div>
                         <label for="email"></label>
-                        <input type="email" class="form-control" name="email" placeholder="Alamat Email" id="email">
+                        <input type="email" class="form-control" name="xemail" placeholder="Alamat Email" id="email">
                     </div>
                     <div>
                         <label for="pwd"></label>
-                        <input type="password" class="form-control" name="password" placeholder="Password" id="pwd">
+                        <input type="password" class="form-control" name="xpassword1" placeholder="Password" id="pwd">
                     </div>
                     <div>
                         <label for="pwd"></label>
-                        <input type="password" class="form-control" name="password" placeholder="Retype Password" id="pwd">
+                        <input type="password" class="form-control" name="xpassword2" placeholder="Retype Password" id="pwd">
                     </div>
                     <div class="pl-4 mt-2">
                         <label class="form-check-label">
