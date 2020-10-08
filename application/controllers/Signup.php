@@ -74,7 +74,7 @@ class Signup extends CI_Controller
             $this->email->message('click Link ini untuk verifikasi : <a href="' . base_url() . 'Signup/verify?email=' . $emaill . '&token=' . urlencode($token) . '">Activate</a>');
         } elseif ($type == 'sertifikat') {
             $this->email->subject('Sertifikat Kelulusan Anda');
-            $this->email->message('click Link ini untuk Mendownload : <a href="' . base_url() . 'Signup/verify?email=' . $emaill . '&token=' . urlencode($token) . '">Activate</a>');
+            $this->email->message('click Link ini untuk Mendownload : <a href="' . base_url() . 'user/sertifikat?email=' . $emaill . '&token=' . urlencode($token) . '">DownLoad Sertifikat</a>');
         }
 
 
