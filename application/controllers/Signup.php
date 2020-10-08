@@ -22,14 +22,15 @@ class Signup extends CI_Controller
         $psw2 = $this->input->post('xpassword2');
         if ($psw1 != $psw2) {
             $url = site_url('signup');
-            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Password tidak Valid!</div>');
-            redirect($url);
+            $x['alert'] =            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Password tidak Valid!</div>');
+            redirect($url, $x);
         } else {
             $data = array(
                 'nama_user' => $nama,
                 'email_user' => $email,
                 'image_user' => 'imagedefult.png',
-                'password_user' => password_hash($psw1, PASSWORD_DEFAULT)
+                'password_user' => password_hash($psw1, PASSWORD_DEFAULT),
+                'is_active' => '0'
             );
 
             //siapkantoken
@@ -40,15 +41,15 @@ class Signup extends CI_Controller
             ];
             $this->db->insert('user_token', $user_token);
 
-            // $this->m_user->simpan_user($data);
+            $this->m_user->simpan_user($data);
+            $emaill = $this->input->post('xemail');
+            $this->_sendEmail($token, 'verify', $emaill);
 
-            $this->_sendEmail($token, 'verify');
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert">Registrasi Berhasil! Silakan Login.</div>');
-            redirect('Signin');
+            $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert">Registrasi Berhasil! Silakan Login.</div>');
+            redirect('Signup', $x);
         }
     }
-    private function _sendEmail($token, $type)
+    private function _sendEmail($token, $type, $emaill)
     {
         $this->load->library('email');
 
@@ -66,14 +67,14 @@ class Signup extends CI_Controller
 
 
         $this->email->from('gurubisa12345@gmail.com', 'Team Kiyay dari Guru Bisa');
-        $this->email->to('faiz.maruf8888@gmail.com');
+        $this->email->to($emaill);
 
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
-            $this->email->message('click Link ini untuk verifikasi : <a href="' . base_url() . 'Signup/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Activate</a>');
+            $this->email->message('click Link ini untuk verifikasi : <a href="' . base_url() . 'Signup/verify?email=' . $emaill . '&token=' . urlencode($token) . '">Activate</a>');
         } elseif ($type == 'sertifikat') {
             $this->email->subject('Sertifikat Kelulusan Anda');
-            $this->email->message('click Link ini untuk Mendownload : <a href="' . base_url() . 'Signup/verify?email=' . $this->input->post('xemail') . '&token=' . urlencode($token) . '">Activate</a>');
+            $this->email->message('click Link ini untuk Mendownload : <a href="' . base_url() . 'Signup/verify?email=' . $emaill . '&token=' . urlencode($token) . '">Activate</a>');
         }
 
 
@@ -82,6 +83,32 @@ class Signup extends CI_Controller
         } else {
             echo $this->email->print_debugger();
             die;
+        }
+    }
+    public function verify()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+        $user = $this->db->get_where('user', ['email_user' => $email])->row_array();
+        if ($user) {
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+            if ($token) {
+                $this->db->set('is_active', 1);
+                $this->db->where('email_user', $email);
+                $this->db->update('user');
+
+                //delete user di user_token
+                $this->db->delete('user_token', ['email' => $email]);
+
+                $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert">' . $email . 'Berhasil Diaktifasi </div>');
+                redirect('Signup');
+            } else {
+                $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Invalid Token !</div>');
+                redirect('Signup');
+            }
+        } else {
+            $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Wrong Email !</div>');
+            redirect('Signup');
         }
     }
 }
