@@ -4,7 +4,7 @@ class M_kelas extends CI_Model
 
     function get_all_kelas()
     {
-        $hsl = $this->db->get('kelas');
+        $hsl = $this->db->query("SELECT * FROM kelas JOIN mentor ON kelas.id_kelas=mentor.id_kelas ")->result_array();
         return $hsl;
     }
     function get_all_kelas_limit3()

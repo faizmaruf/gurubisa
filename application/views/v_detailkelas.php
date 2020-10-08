@@ -44,7 +44,7 @@ $profesi_mentor = $data[8];
     <div class="container d-flex mt-5" data-aos="fade-up" data-aos-duration="3000">
         <div class="container-laptop">
             <div class="laptop">
-                <iframe class="iframesize" src="https://www.youtube.com/embed/ke4W0FWRvi4?autoplay=1&rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
+                <iframe class="iframesize" src="<?= $video_kelas; ?>?autoplay=1&rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
                 <div class="base"></div>
             </div>
         </div>
@@ -89,7 +89,7 @@ $profesi_mentor = $data[8];
                     </ul>
                 </div>
                 <div class="d-flex">
-                    <a href="" class=" button-primary-gb m-auto hvr-grow">
+                    <a href="<?= site_url('signin'); ?>" class=" button-primary-gb m-auto hvr-grow">
                         Ikuti Kelas
                     </a>
                 </div>

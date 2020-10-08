@@ -1,6 +1,6 @@
 <?php
 
-class Signup extends CI_Controller
+class Signin extends CI_Controller
 {
     function __construct()
     {
@@ -10,7 +10,7 @@ class Signup extends CI_Controller
     }
     public function index()
     {
-        $x['activenavbar'] =  'Daftar';
-        $this->load->view('v_signup', $x);
+        $x['activenavbar'] =  'Masuk';
+        $this->load->view('v_signin', $x);
     }
 }
