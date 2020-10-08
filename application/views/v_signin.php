@@ -20,14 +20,14 @@
                     <div class="text-buatakun">Akun GuruBisa </div>
                 </div>
                 <div>
-                    <form action="<?= site_url('Signin/masuk'); ?>">
+                    <form action="<?= site_url('Signin/login'); ?>" method="post" enctype="multipart/form-data">
                         <div class="mt-5">
                             <label for="email"></label>
-                            <input type="email" class="form-control" name="email" placeholder="Alamat Email" id="email">
+                            <input type="email" class="form-control" name="xemail" placeholder="Alamat Email" id="email">
                         </div>
                         <div>
                             <label for="pwd"></label>
-                            <input type="password" class="form-control" name="password" placeholder="Password" id="pwd">
+                            <input type="password" class="form-control" name="xpassword" placeholder="Password" id="pwd">
                         </div>
 
                         <div class="mt-3 mb-3 d-flex">

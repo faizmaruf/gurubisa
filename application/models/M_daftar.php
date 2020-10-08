@@ -13,4 +13,9 @@ class M_daftar extends CI_Model
         $hsl = $this->db->query("INSERT INTO `daftar` (`id_daftar`, `id_user`, `id_kelas`) VALUES (NULL, '$id', '$id_kelas')");
         return $hsl;
     }
+    function cekuser($email)
+    {
+        $hasil = $this->db->query("SELECT * FROM user WHERE email_user='$email'");
+        return $hasil;
+    }
 }
