@@ -3,7 +3,7 @@ class M_materi extends CI_Model
 {
     function get_materiById($id)
     {
-        $hsl = $this->db->query("SELECT materi.nama_materi FROM materi JOIN kelas ON kelas.id_kelas = materi.id_kelas WHERE kelas.id_kelas=$id")->row_array();
+        $hsl = $this->db->query("SELECT materi.nama_materi FROM materi JOIN kelas ON kelas.id_kelas = materi.id_kelas WHERE kelas.id_kelas=$id")->result_array();
         return $hsl;
     }
     function get_materiYgDiambil($id, $id_daftar)

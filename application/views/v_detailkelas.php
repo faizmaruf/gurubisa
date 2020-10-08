@@ -1,14 +1,27 @@
-<!-- <?php
-        $id_kelas = $_GET['id_kelas'];
-        $nama_kelas = $_GET['nama_kelas'];
-        $deskripsi_kelas = $_GET['deskripsi_kelas'];
-        $image_kelas = $_GET['image_kelas'];
-        $video_kelas = $_GET['video_kelas'];
-        $id_mentor = $_GET['id_mentor'];
-        $nama_mentor = $_GET['nama_mentor'];
-        $mentor_image = $_GET['mentor_image'];
-        $profesi_mentor = $_GET['profesi_mentor'];
-        ?> -->
+<?php
+// $id_kelas = $_GET['id_kelas'];
+// $nama_kelas = $_GET['nama_kelas'];
+// $deskripsi_kelas = $_GET['deskripsi_kelas'];
+// $image_kelas = $_GET['image_kelas'];
+// $video_kelas = $_GET['video_kelas'];
+// $id_mentor = $_GET['id_mentor'];
+// $nama_mentor = $_GET['nama_mentor'];
+// $mentor_image = $_GET['mentor_image'];
+// $profesi_mentor = $_GET['profesi_mentor'];
+
+$id_kelas = $data[0];
+$nama_kelas = $data[1];
+$deskripsi_kelas = $data[2];
+$image_kelas = $data[3];
+$video_kelas = $data[4];
+$id_mentor = $data[5];
+$nama_mentor = $data[6];
+$mentor_image = $data[7];
+$profesi_mentor = $data[8];
+
+
+
+?>
 
 
 
@@ -46,7 +59,7 @@
                     <div class="card card-mentor m-3">
                         <div class="card-kelas-img">
                             <div class="img-mentor">
-                                <img src="images/ben-mullins-je240KkJIuA-unsplash.jpg" alt="" width="100%" height="100%" class="rounded-circle">
+                                <img src="<?= $mentor_image; ?>" alt="" width="100%" height="100%" class="rounded-circle">
                             </div>
                         </div>
                         <div class="card-kelas-deskripsi">
@@ -62,6 +75,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container-keunggulan2" data-aos="fade-left" data-aos-duration="1500">
             <div class="container-list">
                 <div class="mengapa-harus">Kelas</div>
@@ -69,11 +83,9 @@
                 <div class="deskripsi-mengapa"><?= $deskripsi_kelas; ?></div>
                 <div class="list-keunggulan">
                     <ul>
-                        <li>30+ Online Kelas</li>
-                        <li>Expert Intruction</li>
-                        <li>Unlimited Akses</li>
-                        <li>Submission</li>
-                        <li>Gratis</li>
+                        <?php foreach ($materi as $d) : ?>
+                            <li><?= $d['nama_materi'] ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <div class="d-flex">
