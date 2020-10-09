@@ -18,6 +18,11 @@ class M_user extends CI_Model
     {
         $this->db->insert('user', $data);
     }
+    function isActived($data)
+    {
+        $hasil = $this->db->query("SELECT * FROM tbl_users WHERE email='$email'");
+        return $hasil;
+    }
 
 
 
@@ -38,7 +43,7 @@ class M_user extends CI_Model
 
     function cekuser($email)
     {
-        $hasil = $this->db->query("SELECT * FROM tbl_users WHERE email='$email'");
+        $hasil = $this->db->query("SELECT * FROM user WHERE email_user='$email'");
         return $hasil;
     }
 }
