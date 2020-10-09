@@ -26,11 +26,16 @@ class Kursus extends CI_Controller
         $id_kelass = $this->input->get(['id_kelas']);
         $id_kelas = $id_kelass['id_kelas'];
 
-        $id_daftar = $this->m_daftar->getIdDaftar($id, $id_kelas);
-        $x['materi'] = $this->m_materi->get_materiByIdDaftarAllElement($id_daftar);
 
+        //mendapatkan Id daftar
+        $id_daftarkelas = $this->m_daftar->getIdDaftar($id, $id_kelas);
+        $id_daftark = $id_daftarkelas[0];
+        $id_daftar = $id_daftark['id_daftar'];
+
+        $x['materi'] = $this->m_materi->get_materiByIdDaftarAllElement($id_daftar);
         var_dump($x['materi']);
         die;
+
 
 
         $x['activesidenav'] = "Detail Kelas";
