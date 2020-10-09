@@ -1,5 +1,6 @@
+
 <?php
-class Home extends CI_Controller
+class Kelassaya extends CI_Controller
 {
     public function __construct()
     {
@@ -17,14 +18,12 @@ class Home extends CI_Controller
     {
         $email = $this->session->userdata('email_user');
         $x['user'] = $this->m_user->getUserByEmail($email);
-        $x['data'] = $this->m_kelas->get_all_kelas();
-        $x['activesidenav'] = 'Katalog Kelas';
+        //ambil kelas yang di ambil user
+        $id = $this->session->userdata('id_user');
+        $x['data'] = $this->m_kelas->get_kelasById($id);
+        var_dump($x['data']);
+        die;
+        $x['activesidenav'] = 'Kelas Saya';
         $this->load->view('user/v_katalogkelas', $x);
-    }
-
-    public function Logout()
-    {
-        $this->session->sess_destroy();
-        redirect('signin');
     }
 }

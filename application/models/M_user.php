@@ -8,10 +8,10 @@ class M_user extends CI_Model
         return $hsl;
     }
 
-    function get_all_userById($id)
+    function getUserByEmail($email)
     {
-        $hsl = $this->db->get('user', $id);
-        return $hsl;
+        $hasil = $this->db->query("SELECT * FROM user WHERE email_user='$email'")->row_array();
+        return $hasil;
     }
 
     function simpan_user($data)
@@ -20,6 +20,11 @@ class M_user extends CI_Model
     }
 
 
+    function getIdUserByEmail($email)
+    {
+        $hasil = $this->db->query("SELECT id_user FROM user WHERE email_user='$email'")->row_array();
+        return $hasil;
+    }
     function isActived($email)
     {
         $hasil = $this->db->query("SELECT is_active FROM user WHERE email_user='$email'")->row_array();

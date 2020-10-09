@@ -30,7 +30,7 @@ class Signin extends CI_Controller
                 echo "hello";
                 $newdata = array(
 
-                    'email' => $xcekuser['email'],
+                    'email_user' => $xcekuser['email_user'],
 
                     'logged_in' => true
                 );
