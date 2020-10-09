@@ -18,9 +18,11 @@ class M_user extends CI_Model
     {
         $this->db->insert('user', $data);
     }
-    function isActived($data)
+
+
+    function isActived($email)
     {
-        $hasil = $this->db->query("SELECT * FROM tbl_users WHERE email='$email'");
+        $hasil = $this->db->query("SELECT is_active FROM user WHERE email_user='$email'")->row_array();
         return $hasil;
     }
 
