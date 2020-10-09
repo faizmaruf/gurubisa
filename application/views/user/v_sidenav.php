@@ -1,4 +1,4 @@
-<div class="container-img-user">
+<div class="container-img-user" data-aos="fade-right" data-aos-duration="1000">
     <img class="img-user" src="<?php echo base_url() . 'assets/images/user/' . $user["image_user"]; ?>">
     </img>
     <div class="nama-user mt-1">

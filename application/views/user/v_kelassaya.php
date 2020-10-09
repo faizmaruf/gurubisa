@@ -43,9 +43,8 @@
                                             <div class="col nama-kelas"><?= $d['nama_kelas'] ?></div>
                                         </div>
                                         <div class="row width100 mt-4">
-                                            <a href="<?php echo site_url() . 'user/detail' ?>?id_kelas=<?= $d['id_kelas'] ?>" class="col daftar-sekarang">Daftar Sekarang &nbsp;
-                                                &nbsp;
-                                                <i class="fa fa-long-arrow-right" style="color: #635DFF; opacity: 76%; font-weight: lighter;"></i></a>
+                                            <div class="col daftar-sekarang "> &nbsp;Akses Selamanya &nbsp;<span class="jam jam-infinite"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="play-button-progres">
-                                <a href="kursus.html">
+                                <a href="<?php echo site_url() . 'user/kursus' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>">
                                     <img src="<?= base_url('assets/images/play-button.png'); ?>" alt="play-button" width="90%" class="hvr-grow"></a>
                             </div>
                         </div>
@@ -101,7 +100,25 @@
     </div>
 
 
+    <script>
+        function move() {
+            var elem = document.getElementById("myBar");
+            var width = 0;
+            var widthg = elem.innerHTML;
+            console.log(widthg);
+            var id = setInterval(frame, 30);
 
+            function frame() {
+                if (width >= widthg) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    elem.innerHTML = width * 1 + '%';
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();

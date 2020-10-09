@@ -24,20 +24,20 @@ class Kelassaya extends CI_Controller
 
         $id_kelas = $this->input->get(['id_kelas']);
 
-        var_dump($id_kelas);
-        die;
+        // var_dump($id_kelas);
+        // die;
         //ambil id user
         $email = $this->session->userdata('email_user');
         $id_user = $this->m_user->getIdUserByEmail($email);
         $id = $id_user['id_user'];
 
-        $id_daftar = $this->m_daftar->getIdDaftar($id, $id_kelas);
+        // $id_daftar = $this->m_daftar->getIdDaftar($id, $id_kelas);
 
 
 
 
         $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
-        $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
+        // $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
         $x['activesidenav'] = 'Kelas Saya';
         $this->load->view('user/v_kelassaya', $x);
     }
