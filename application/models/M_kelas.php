@@ -13,9 +13,9 @@ class M_kelas extends CI_Model
         return $hsl;
     }
 
-    function get_kelasById($id)
+    function get_kelasByEmail($email)
     {
-        $hsl = $this->db->query("SELECT * FROM user JOIN daftar ON user.id_user=daftar.id_user JOIN kelas ON daftar.id_kelas=kelas.id_kelas and user.id_user=$id");
+        $hsl = $this->db->query("SELECT kelas.* FROM user JOIN daftar ON user.id_user=daftar.id_user JOIN kelas ON daftar.id_kelas=kelas.id_kelas WHERE user.email_user='$email'");
         return $hsl;
     }
     function get_kelasById_ByIdDaftar($id, $id_daftar)

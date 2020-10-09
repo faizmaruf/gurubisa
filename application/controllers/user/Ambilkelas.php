@@ -24,12 +24,23 @@ class Ambilkelas extends CI_Controller
         $id_user = $this->m_user->getIdUserByEmail($email);
         $id = $id_user['id_user'];
 
+        //cek apakah kelas sudah pernah diambil apa belum
+        $cekIsDoneGetClass = $this->m_kelas->get_kelasByEmail($email)->result_array();
+        $i = 0;
+        foreach ($cekIsDoneGetClass as $c) :
+            if ($c['id_kelas'] == $id_kelas) {
+                $i++;
+            }
+        endforeach;
+        if ($i != '0') {
+            //kelas sudah diambil
+            redirect('user/kelassaya');
+        } else { // baru bisa di ambil kelasnya
+            $this->m_daftar->daftarKelas($id, $id_kelas);
+            $x['user'] = $this->m_user->getUserByEmail($email);
 
-        // baru bisa di ambil kelasnya
-        $this->m_daftar->daftarKelas($id, $id_kelas);
-        $x['user'] = $this->m_user->getUserByEmail($email);
-        // $x['data'] = $this->m_kelas->get_all_kelas();
-        $x['activesidenav'] = 'Katalog Kelas';
-        $this->load->view('user/kelassaya', $x);
+            $x['activesidenav'] = 'Katalog Kelas';
+            redirect('user/kelassaya');
+        }
     }
 }

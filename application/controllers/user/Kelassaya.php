@@ -19,11 +19,10 @@ class Kelassaya extends CI_Controller
         $email = $this->session->userdata('email_user');
         $x['user'] = $this->m_user->getUserByEmail($email);
         //ambil kelas yang di ambil user
-        $id = $this->session->userdata('id_user');
-        $x['data'] = $this->m_kelas->get_kelasById($id);
-        var_dump($x['data']);
-        die;
+
+        $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
+
         $x['activesidenav'] = 'Kelas Saya';
-        $this->load->view('user/v_katalogkelas', $x);
+        $this->load->view('user/v_kelassaya', $x);
     }
 }

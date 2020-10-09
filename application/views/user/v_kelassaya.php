@@ -2,6 +2,7 @@
 <html lang="en">
 
 
+
 <!-- head -->
 <?php $this->load->view('user/v_head'); ?>
 
@@ -24,7 +25,7 @@
                     Kelas Saya
                 </div>
                 <div class="judul-des mt-1">
-                    6 kelas tersedia
+                    kelas tersedia
                 </div>
                 <div class="container mtb-7">
                     <div class="row " id="container">
@@ -42,7 +43,7 @@
                                             <div class="col nama-kelas"><?= $d['nama_kelas'] ?></div>
                                         </div>
                                         <div class="row width100 mt-4">
-                                            <a href="<?php echo site_url() . 'user/detail' ?>?id_kelas=<?= $d['id_kelas'] ?>&nama_kelas=<?= $d['nama_kelas'] ?>&deskripsi_kelas=<?= $d['deskripsi_kelas'] ?>&image_kelas=<?= $d['image_kelas'] ?>&video_kelas=<?= $d['video_kelas'] ?>&id_mentor=<?= $d['id_mentor'] ?> &nama_mentor=<?= $d['nama_mentor'] ?> &mentor_image=<?= $d['mentor_image'] ?> &profesi_mentor=<?= $d['profesi_mentor'] ?>" class="col daftar-sekarang">Daftar Sekarang &nbsp;
+                                            <a href="<?php echo site_url() . 'user/detail' ?>?id_kelas=<?= $d['id_kelas'] ?>" class="col daftar-sekarang">Daftar Sekarang &nbsp;
                                                 &nbsp;
                                                 <i class="fa fa-long-arrow-right" style="color: #635DFF; opacity: 76%; font-weight: lighter;"></i></a>
                                         </div>
