@@ -11,6 +11,8 @@ class Kelassaya extends CI_Controller
         };
         $this->load->model('m_user');
         $this->load->model('m_kelas');
+        $this->load->model('m_daftar');
+        $this->load->model('m_progres');
         $this->load->library('session');
         $this->load->library('upload');
     }
@@ -20,8 +22,22 @@ class Kelassaya extends CI_Controller
         $x['user'] = $this->m_user->getUserByEmail($email);
         //ambil kelas yang di ambil user
 
-        $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
+        $id_kelas = $this->input->get(['id_kelas']);
 
+        var_dump($id_kelas);
+        die;
+        //ambil id user
+        $email = $this->session->userdata('email_user');
+        $id_user = $this->m_user->getIdUserByEmail($email);
+        $id = $id_user['id_user'];
+
+        $id_daftar = $this->m_daftar->getIdDaftar($id, $id_kelas);
+
+
+
+
+        $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
+        $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
         $x['activesidenav'] = 'Kelas Saya';
         $this->load->view('user/v_kelassaya', $x);
     }

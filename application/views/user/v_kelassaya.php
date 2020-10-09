@@ -55,6 +55,47 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
+
+
+                <div class="container mb-6">
+                    <div class="judul-atas">
+                        Progres Belajar Saya
+                    </div>
+                    <div class="judul-des">
+                        Memulai semua kelas
+                    </div>
+                    <?php foreach ($data as $d) : ?>
+
+                        <div class="container-progres" onload="move()" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="img-progres">
+                                <img src="<?php echo base_url() . '/assets/images/gambarkelas/' . $d["image_kelas"]; ?>" alt="images progres-bar" width="100%">
+                            </div>
+                            <div class="kelas-progres">
+                                <a href=""><?= $d['nama_kelas'] ?></a>
+                            </div>
+                            <div class="progres-bar">
+                                <div class="w3-light-grey w3-round">
+                                    <div id="myBar" class="w3-container w3-blue w3-round" style="width:57%">57</div>
+                                </div>
+
+                                <div class="judul-des mt-2">
+                                    4 dari 9 materi telah selesai
+                                </div>
+                            </div>
+                            <div class="play-button-progres">
+                                <a href="kursus.html">
+                                    <img src="<?= base_url('assets/images/play-button.png'); ?>" alt="play-button" width="90%" class="hvr-grow"></a>
+                            </div>
+                        </div>
+
+
+
+                    <?php endforeach; ?>
+
+
+
+
+                </div>
             </div>
         </div>
     </div>
