@@ -26,8 +26,9 @@ class Signup extends CI_Controller
             redirect($url, $x);
         } else {
             $userAda =  $this->db->get_where('user', ['email_user' => $email])->row_array();
+
             //cek akun sudah ada apa belum
-            if ($userAda == $email) {
+            if (!($userAda)) {
 
                 $data = array(
                     'nama_user' => $nama,
@@ -47,10 +48,13 @@ class Signup extends CI_Controller
 
                 $this->m_user->simpan_user($data);
                 $emaill = $this->input->post('xemail');
+                // var_dump($emaill);
+                // die;
+
                 $this->_sendEmail($token, 'verify', $emaill);
 
                 $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert">Registrasi Berhasil! Silakan Cek Email Anda Untuk Aktifasi.</div>');
-                redirect('Signup', $x);
+                redirect('Signin', $x);
             } else {
                 $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Akun Sudah Ada !,Silahkan Buat Yang Baru</div>');
                 redirect('Signup', $x);
@@ -100,7 +104,7 @@ class Signup extends CI_Controller
         $user = $this->db->get_where('user', ['email_user' => $email])->row_array();
         if ($user) {
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
-            if ($token) {
+            if ($user_token) {
                 $this->db->set('is_active', 1);
                 $this->db->where('email_user', $email);
                 $this->db->update('user');
