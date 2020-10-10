@@ -34,14 +34,14 @@ class Kelassaya extends CI_Controller
 
 
         //mendapatkan Id daftar
-        $id_daftarkelas = $this->m_daftar->getIdDaftar($id, $id_kelas);
-        $id_daftark = $id_daftarkelas[0];
-        $id_daftar = $id_daftark['id_daftar'];
+        // $id_daftarkelas = $this->m_daftar->getIdDaftar($id, $id_kelas);
+        // $id_daftark = $id_daftarkelas[0];
+        // $id_daftar = $id_daftark['id_daftar'];
 
 
-        $persentase = $this->_persentaseKelasSelesai($id_daftar);
-        var_dump($persentase);
-        die;
+        // // $persentase = $this->_persentaseKelasSelesai(20);
+        // var_dump($id_daftar);
+        // die;
 
         $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
         // $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
