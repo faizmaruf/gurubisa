@@ -1,6 +1,7 @@
 <?php
 class M_materi extends CI_Model
 {
+
     function get_materiById($id)
     {
         $hsl = $this->db->query("SELECT materi.nama_materi FROM materi JOIN kelas ON kelas.id_kelas = materi.id_kelas WHERE kelas.id_kelas=$id")->result_array();

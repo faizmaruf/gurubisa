@@ -80,11 +80,11 @@ body {
 
 .sidenav-kursus .list-sidenav-kursus a {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     color: #222222;
     font-weight: normal;
     text-decoration: none;
-    margin: auto 28px;
+    margin: auto 18px;
 }
 
 .active-kursus {
@@ -96,11 +96,11 @@ body {
 
 .sidenav-kursus .active-kursus a {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     color: #f2f2f2;
     font-weight: normal;
     text-decoration: none;
-    margin: auto 28px;
+    margin: auto 18px;
 }
 
 
