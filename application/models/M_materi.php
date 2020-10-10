@@ -27,4 +27,9 @@ class M_materi extends CI_Model
         $hsl = $this->db->query("SELECT materi.id_materi FROM materi JOIN kelas ON kelas.id_kelas = materi.id_kelas WHERE kelas.id_kelas=$id_kelas")->row_array();
         return $hsl;
     }
+    function get_videoMateriByIdMateri($id_materi)
+    {
+        $hsl = $this->db->query("SELECT materi.video_materi FROM materi WHERE materi.id_materi='$id_materi'");
+        return $hsl->result_array();
+    }
 }

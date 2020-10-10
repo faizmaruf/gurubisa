@@ -19,6 +19,11 @@ class M_progres extends CI_Model
     // }
 
 
+    function getJumlahBarisProgres($id_daftar)
+    {
+        $hsl = $this->db->query("SELECT COUNT(progres.is_done) FROM progres JOIN daftar ON daftar.id_daftar=progres.id_daftar WHERE daftar.id_daftar=$id_daftar");
+        return $hsl->result_array();
+    }
     function getIsdoneProgres($id_daftar)
     {
         $hsl = $this->db->query("SELECT progres.id_materi FROM materi JOIN progres ON progres.id_materi = materi.id_materi JOIN daftar ON daftar.id_daftar=progres.id_daftar WHERE daftar.id_daftar=$id_daftar");
@@ -27,6 +32,11 @@ class M_progres extends CI_Model
     function getIsActivedSideNav($id_materi)
     {
         $hsl = $this->db->query("SELECT progres.id_materi FROM materi JOIN progres ON progres.id_materi = materi.id_materi WHERE progres.id_materi=$id_materi");
+        return $hsl->result_array();
+    }
+    function getIsActivedSideNavBuatNextVideo($id_materi)
+    {
+        $hsl = $this->db->query("SELECT materi.id_materi FROM materi WHERE materi.id_materi=$id_materi");
         return $hsl->result_array();
     }
 

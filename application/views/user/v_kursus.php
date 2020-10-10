@@ -16,7 +16,8 @@
 //     $i++;
 // endforeach;
 // var_dump($activesidenav);
-// var_dump($is_done);
+$kursusselesai = ($kursusselesai[0]);;
+// var_dump($video_materi);
 // die;
 
 ?>
@@ -38,7 +39,7 @@
             <div class="sidenav-kursus border-info shadow-lg d-flex justify-content-center" data-aos="fade-right" data-aos-duration="1000">
 
                 <div class="ml-4 mb-3 font-weight-bold">Persiapan</div>
-                <div class="list-sidenav-kursus hvr-grow "> <a href="#"> Trailler kelas</a> <span class="jam jam-check pt-4" style="color: #3c4b66; font-size: large;"></span>
+                <div class="list-sidenav-kursus hvr-grow "> <a href="#"> Trailler kelas</a><span class="jam jam-check pt-4" style="color: #3c4b66; font-size: large;"></span>
                 </div>
                 <div class="ml-4 mb-3 font-weight-bold">Ayo Belajar</div>
 
@@ -84,15 +85,19 @@
                     <div class="content-video m-auto">
                         <!-- ?autoplay=1&rel=0&modestbranding=1&showinfo=0
     -->
-                        <iframe class="iframesize" src="https://www.youtube.com/embed/zHXH_NjygFk?autoplay=1&rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="iframesize" src="<?= $video_materi; ?>?autoplay=1&rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
                     </div>
                     <div class="d-flex justify-content-end" data-aos="zoom-out" data-aos-duration="1000">
-                        <div>
+                        <!-- <div>
 
                             <a href="<?php echo site_url() . 'user/kursus/nextvideo' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi - 1; ?>" class="btn btn-outline-primary mr-2 hvr-grow">Kembali</a>
-                        </div>
+                        </div> -->
                         <div>
-                            <a href="<?php echo site_url() . 'user/kursus/nextvideo' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi + 1; ?>" class="btn btn-primary hvr-grow">Materi Selanjut</a>
+                            <?php if ($kursusselesai < 6) { ?>
+                                <!-- <a href="<?php echo site_url() . 'user/kursus' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi + 1; ?>" class="btn btn-primary hvr-grow">Materi Selanjutnya</a> -->
+                            <?php } else { ?>
+                                <a href="#" class="btn btn-primary hvr-grow">Cetak Sertifikat</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
