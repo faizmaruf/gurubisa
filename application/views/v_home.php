@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col text-rekomendasi">Rekomendasi <Span class="text-rekomendasi-bold">Kelas</Span></div>
             <div class="col">
-                <div class="btn d-flex justify-content-end"><a href="#" class="button-lebih-banyak hvr-grow">Lihat Lebih
+                <div class="btn d-flex justify-content-end"><a href="<?= site_url('kelas'); ?>" class="button-lebih-banyak hvr-grow">Lihat Lebih
                         Banyak</a></div>
             </div>
         </div>

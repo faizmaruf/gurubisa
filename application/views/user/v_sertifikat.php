@@ -52,7 +52,7 @@
                         <b><?= $nama_user; ?></b><br>
                     </span><br>
                     <span style="font-family: Arial, Helvetica, sans-serif; font-size: 17PX;">
-                        telah menyelesaikan <b style="color: #FF1493;">Program Belajar <?= $nama_kelas; ?></b>
+                        telah menyelesaikan <b style="color: #FF1493;">Kelas <?= $nama_kelas; ?></b>
                     </span>
                 </p>
             </td>

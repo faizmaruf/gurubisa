@@ -37,7 +37,7 @@ class M_user extends CI_Model
 
     function update_user($where, $data)
     {
-        $this->db->where($where);
+        $this->db->where('id_user', $where);
         $this->db->update("user", $data);
     }
 

@@ -18,6 +18,7 @@
 
         <!-- Page content -->
         <div class="main d-flex flex-column">
+            <?= $this->session->flashdata('message'); ?>
             <div class="container">
                 <div class="judul-atas">
                     Edit Profil
@@ -38,6 +39,7 @@
                             <div>
                                 <label for="nama"></label>
                                 <input type="text" class="form-control" name="xname" placeholder="Nama Lengkap" id="nama" value="<?= $user['nama_user']; ?>">
+                                <input type="hidden" name="xid" value="<?= $user['id_user']; ?>" />
                             </div>
                             <div>
                                 <label for="email"></label>

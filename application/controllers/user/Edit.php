@@ -50,8 +50,8 @@ class Edit extends CI_Controller
                 $nuptk = $this->input->post('xnuptk');
                 $jeniskelamin = $this->input->post('xjeniskelamin');
 
-                $id = $this->input->post('xid');
-                $where = array('id' => $id);
+                $where = $this->input->post('xid');
+                //$where = array('id' => $id);
 
                 $data = array(
                     'nama_user' => $nama,
@@ -66,8 +66,26 @@ class Edit extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center zindex-100" role="alert">Profile berhasil diupdate</div>');
                 redirect('user/edit');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">tak berhasil diupdate</div>');
+                $gambar = 'fotoprofil.JPG';
+                $nama = $this->input->post('xname');
+                $email = $this->input->post('xemail');
+                $nuptk = $this->input->post('xnuptk');
+                $jeniskelamin = $this->input->post('xjeniskelamin');
 
+                $where = $this->input->post('xid');
+                //$where = array('id' => $id);
+
+                $data = array(
+                    'nama_user' => $nama,
+                    'email_user' => $email,
+                    'nuptk_user' => $nuptk,
+                    'image_user' => $gambar,
+                    'jk_user' => $jeniskelamin,
+                );
+
+
+                $this->m_user->update_user($where, $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center zindex-100" role="alert">Profile berhasil diupdate</div>');
                 redirect('user/edit');
             }
         }

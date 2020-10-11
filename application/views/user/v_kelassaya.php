@@ -27,12 +27,7 @@
                 <?= $this->session->flashdata('message'); ?>
 
 
-                <div class="judul-atas">
-                    Kelas Saya
-                </div>
-                <div class="judul-des mt-1">
-                    kelas tersedia
-                </div>
+
                 <div class="container mb-6">
                     <div class="judul-atas">
                         Progres Belajar Saya
@@ -67,6 +62,12 @@
 
 
                     <?php endforeach; ?>
+                </div>
+                <div class="judul-atas">
+                    Kelas Saya
+                </div>
+                <div class="judul-des mt-1">
+                    kelas tersedia
                 </div>
                 <div class="container mtb-7">
                     <div class="row " id="container">

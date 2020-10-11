@@ -52,7 +52,7 @@ $profesi_mentor = $data[8];
                                 <div class="card card-mentor m-3">
                                     <div class="card-kelas-img">
                                         <div class="img-mentor">
-                                            <img src="<?= $mentor_image; ?>" alt="" width="100%" height="100%" class="rounded-circle">
+                                            <img src="<?= base_url('assets/images/mentor/') . $mentor_image; ?>" alt="" width="100%" height="100%" class="rounded-circle">
                                         </div>
                                     </div>
                                     <div class="card-kelas-deskripsi">
