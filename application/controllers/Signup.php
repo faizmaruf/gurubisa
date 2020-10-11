@@ -22,8 +22,8 @@ class Signup extends CI_Controller
         $psw2 = $this->input->post('xpassword2');
         if ($psw1 != $psw2) {
             $url = site_url('signup');
-            $x['alert'] =            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Password tidak Valid!</div>');
-            redirect($url, $x);
+            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Password tidak Valid!</div>');
+            redirect($url);
         } else {
             $userAda =  $this->db->get_where('user', ['email_user' => $email])->row_array();
 
@@ -53,11 +53,11 @@ class Signup extends CI_Controller
 
                 $this->_sendEmail($token, 'verify', $emaill);
 
-                $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert">Registrasi Berhasil! Silakan Cek Email Anda Untuk Aktifasi.</div>');
-                redirect('Signin', $x);
+                $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Registrasi Berhasil! Silakan Cek Email Anda Untuk Aktifasi.</div>');
+                redirect('Signin');
             } else {
-                $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Akun Sudah Ada !,Silahkan Buat Yang Baru</div>');
-                redirect('Signup', $x);
+                $this->session->set_flashdata('message', '<div class="alert alert-info d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Akun Sudah Ada ! Silahkan Buat Yang Baru.</div>');
+                redirect('Signup');
             }
         }
     }
@@ -68,7 +68,7 @@ class Signup extends CI_Controller
         $config = array();
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-        $config['smtp_user'] = 'gurubisa12345@gmail.com';
+        $config['smtp_user'] = 'gurubisa123@gmail.com';
         $config['smtp_pass'] = 'sriwijayafc08';
         $config['smtp_port'] = 465;
         $config['mailtype'] = 'html';
@@ -78,7 +78,7 @@ class Signup extends CI_Controller
         $this->email->set_newline("\r\n");
 
 
-        $this->email->from('gurubisa12345@gmail.com', 'Team Kiyay dari Guru Bisa');
+        $this->email->from('gurubisa123@gmail.com', 'Team Kiyay dari Guru Bisa');
         $this->email->to($emaill);
 
         if ($type == 'verify') {
@@ -112,14 +112,14 @@ class Signup extends CI_Controller
                 //delete user di user_token
                 $this->db->delete('user_token', ['email' => $email]);
 
-                $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert">' . $email . 'Berhasil Diaktifasi </div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Akun ' . $email . ' Berhasil Diaktifasi </div>');
                 redirect('Signin');
             } else {
-                $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Invalid Token !</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Invalid Token !</div>');
                 redirect('Signup');
             }
         } else {
-            $x['alert'] = $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Wrong Email !</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Wrong Email !</div>');
             redirect('Signup');
         }
     }

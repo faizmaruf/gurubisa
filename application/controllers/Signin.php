@@ -27,7 +27,7 @@ class Signin extends CI_Controller
             $userIsActived = $this->m_user->isActived($email);
             $userIsActive = $userIsActived["is_active"];
             if ($userIsActive == '1') {
-                echo "hello";
+
                 $newdata = array(
 
                     'email_user' => $xcekuser['email_user'],
@@ -35,13 +35,14 @@ class Signin extends CI_Controller
                     'logged_in' => true
                 );
                 $this->session->set_userdata($newdata);
+
                 redirect('user/home');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Akun Belum Diaktivasi, Silahkan Cek Pesan Di Email Anda </div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-info d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Akun Belum Diaktivasi, Silahkan Cek Pesan Di Email Anda </div>');
                 redirect('signin');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert">Password atau email anda salah!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Password atau email anda salah!</div>');
             redirect('signin');
         }
     }

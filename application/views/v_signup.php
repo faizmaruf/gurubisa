@@ -10,6 +10,7 @@
         <?php $this->load->view('v_navbar'); ?>
     </header>
 
+    <?= $this->session->flashdata('message'); ?>
     <div class="continer p-5  mt-3 mb-4">
         <div class="row container-formulir">
             <div class="col-lg-6 shadow pl-5 pr-5" data-aos="zoom-out-right" data-aos-duration="1200">

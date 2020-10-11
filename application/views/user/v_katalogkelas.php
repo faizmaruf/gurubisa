@@ -17,6 +17,8 @@
 
         <!-- Page content -->
         <div class="main">
+            <?= $this->session->flashdata('message'); ?>
+
             <div class="container">
 
 

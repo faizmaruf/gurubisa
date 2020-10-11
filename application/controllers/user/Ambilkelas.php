@@ -40,6 +40,8 @@ class Ambilkelas extends CI_Controller
             $x['user'] = $this->m_user->getUserByEmail($email);
 
             $x['activesidenav'] = 'Katalog Kelas';
+            $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Kelas Berhasil Diambil </div>');
+
             redirect('user/kelassaya');
         }
     }

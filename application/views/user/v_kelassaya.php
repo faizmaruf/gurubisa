@@ -22,7 +22,9 @@
 
         <!-- Page content -->
         <div class="main">
+
             <div class="container">
+                <?= $this->session->flashdata('message'); ?>
 
 
                 <div class="judul-atas">
@@ -31,35 +33,6 @@
                 <div class="judul-des mt-1">
                     kelas tersedia
                 </div>
-                <div class="container mtb-7">
-                    <div class="row " id="container">
-                        <?php foreach ($data as $d) : ?>
-
-                            <div class="col-md d-flex justify-content-center " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="700">
-                                <div class="card card-kelas m-3 hvr-grow ">
-                                    <div class="card-kelas-img "><img src="<?php echo base_url() . '/assets/images/gambarkelas/' . $d["image_kelas"]; ?>" alt="imagescardkelas" class="img-card"></div>
-                                    <div class="card-kelas-deskripsi">
-                                        <div class="row width100 mt-2">
-                                            <div class="col text-gurubisa-kelas">GuruBisa Kelas</div>
-                                            <div class="col text-durasi-belajar">8h 17min</div>
-                                        </div>
-                                        <div class="row width100 mt-3">
-                                            <div class="col nama-kelas"><?= $d['nama_kelas'] ?></div>
-                                        </div>
-                                        <div class="row width100 mt-4">
-                                            <div class="col daftar-sekarang "> &nbsp;Akses Selamanya &nbsp;<span class="jam jam-infinite"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-
-
                 <div class="container mb-6">
                     <div class="judul-atas">
                         Progres Belajar Saya
@@ -94,11 +67,41 @@
 
 
                     <?php endforeach; ?>
-
-
-
-
                 </div>
+                <div class="container mtb-7">
+                    <div class="row " id="container">
+                        <?php foreach ($data as $d) : ?>
+
+                            <div class="col-md d-flex justify-content-center " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="700">
+                                <div class="card card-kelas m-3 hvr-grow ">
+                                    <div class="card-kelas-img "><img src="<?php echo base_url() . '/assets/images/gambarkelas/' . $d["image_kelas"]; ?>" alt="imagescardkelas" class="img-card"></div>
+                                    <div class="card-kelas-deskripsi">
+                                        <div class="row width100 mt-2">
+                                            <div class="col text-gurubisa-kelas">GuruBisa Kelas</div>
+                                            <div class="col text-durasi-belajar">8h 17min</div>
+                                        </div>
+                                        <div class="row width100 mt-3">
+                                            <div class="col nama-kelas"><?= $d['nama_kelas'] ?></div>
+                                        </div>
+                                        <div class="row width100 mt-4">
+                                            <div class="col daftar-sekarang "> &nbsp;Akses Selamanya &nbsp;<span class="jam jam-infinite"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+
+
+
+
+
+
             </div>
         </div>
     </div>
