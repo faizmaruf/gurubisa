@@ -24,7 +24,9 @@ class Kelassaya extends CI_Controller
         //ambil kelas yang di ambil user
 
         $id_kelas = $this->input->get(['id_kelas']);
-
+        if ($id_kelas == null) {
+            $id_kelas; // baru nyampek sini
+        }
         // var_dump($id_kelas);
         // die;
         //ambil id user
@@ -37,24 +39,63 @@ class Kelassaya extends CI_Controller
         // $id_daftarkelas = $this->m_daftar->getIdDaftar($id, $id_kelas);
         // $id_daftark = $id_daftarkelas[0];
         // $id_daftar = $id_daftark['id_daftar'];
+        // var_dump($id);
+        // die;
 
-
-        // // $persentase = $this->_persentaseKelasSelesai(20);
+        $persentase = $this->_persentaseKelasSelesai($email);
+        $jumMateriSelesai = $this->_jumMateriSelesai($email);
         // var_dump($id_daftar);
         // die;
 
         $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
+        $x['persentase'] = $persentase;
+        $x['jumMateriSelesai'] = $jumMateriSelesai;
         // $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
         $x['activesidenav'] = 'Kelas Saya';
         $this->load->view('user/v_kelassaya', $x);
     }
-    private function _persentaseKelasSelesai($id_daftar)
-    {
-        $kursusSelesaii = $this->m_progres->getJumlahBarisProgres($id_daftar);
-        $kursusSelesai = $kursusSelesaii[0]["COUNT(progres.is_done)"];
-        $jumlahmateri = 6;
-        $persentase = ($kursusSelesai / $jumlahmateri) * 100;
+    // private function _persentaseKelasSelesai($id_daftar)
+    // {
+    //     $kursusSelesaii = $this->m_progres->getJumlahBarisProgres($id_daftar);
+    //     $kursusSelesai = $kursusSelesaii[0]["COUNT(progres.is_done)"];
+    //     $jumlahmateri = 6;
+    //     $persentase = ($kursusSelesai / $jumlahmateri) * 100;
 
-        return $persentase;
+    //     return $persentase;
+    // }
+    private function _persentaseKelasSelesai($email) //bentuknya array nanti
+    {
+        $kelassaya = $this->m_kelas->get_kelasByEmail($email)->result_array();
+
+        foreach ($kelassaya as $k) {
+            $id_kelas = $k['id_kelas'];
+            $id_daftarrr = $this->m_daftar->getIdDaftarByEmailAndIdkelas($email, $id_kelas);
+            $id_daftar = $id_daftarrr[0]['id_daftar'];
+            $kursusSelesaii = $this->m_progres->getJumlahBarisProgresPerUser($email, $id_daftar);
+            $kursusSelesai = $kursusSelesaii[0]["COUNT(progres.is_done)"];
+            $jumlahmateri = 6;
+            $persentase = (int)(($kursusSelesai / $jumlahmateri) * 100);
+            $arr_persentase[] = $persentase;
+        }
+        // var_dump($arr_persentase);
+        // die;
+        return $arr_persentase;
+    }
+    private function _jumMateriSelesai($email) //bentuknya array nanti
+    {
+        $kelassaya = $this->m_kelas->get_kelasByEmail($email)->result_array();
+
+        foreach ($kelassaya as $k) {
+            $id_kelas = $k['id_kelas'];
+            $id_daftarrr = $this->m_daftar->getIdDaftarByEmailAndIdkelas($email, $id_kelas);
+            $id_daftar = $id_daftarrr[0]['id_daftar'];
+            $kursusSelesaii = $this->m_progres->getJumlahBarisProgresPerUser($email, $id_daftar);
+            $kursusSelesai = $kursusSelesaii[0]["COUNT(progres.is_done)"];
+
+            $jumMateriSelesai[] = $kursusSelesai;
+        }
+        // var_dump($jumMateriSelesai);
+        // die;
+        return $jumMateriSelesai;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-// var_dump($data);
+// var_dump($persentase);
 // die;
 ?>
 <!DOCTYPE html>
@@ -35,9 +35,10 @@
                     <div class="judul-des">
                         Memulai semua kelas
                     </div>
+                    <?php $i = 0; ?>
                     <?php foreach ($data as $d) : ?>
 
-                        <div class="container-progres" onload="move()" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="container-progres" data-aos="fade-up" data-aos-duration="1000">
                             <div class="img-progres">
                                 <img src="<?php echo base_url() . '/assets/images/gambarkelas/' . $d["image_kelas"]; ?>" alt="images progres-bar" width="100%">
                             </div>
@@ -45,12 +46,14 @@
                                 <a href=""><?= $d['nama_kelas'] ?></a>
                             </div>
                             <div class="progres-bar">
-                                <div class="w3-light-grey w3-round">
-                                    <div id="myBar" class="w3-container w3-blue w3-round" style="width:57%">57</div>
+                                <div class="w3-light-grey w3-round" onload="move()">
+                                    <?php if ($jumMateriSelesai[$i] != 0) { ?>
+                                        <div id="myBar" class="w3-container w3-blue w3-round" style="width:<?= $persentase[$i]; ?>%"><?= $persentase[$i]; ?></div>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="judul-des mt-2">
-                                    4 dari 9 materi telah selesai
+                                    <?= $jumMateriSelesai[$i]; ?> dari 6 materi telah selesai
                                 </div>
                             </div>
                             <div class="play-button-progres">
@@ -59,41 +62,41 @@
                             </div>
                         </div>
 
-
+                        <?php $i++; ?>
 
                     <?php endforeach; ?>
-                </div>
-                <div class="judul-atas">
-                    Kelas Saya
-                </div>
-                <div class="judul-des mt-1">
-                    kelas tersedia
-                </div>
-                <div class="container mtb-7">
-                    <div class="row " id="container">
-                        <?php foreach ($data as $d) : ?>
+                    <div class="judul-atas">
+                        Kelas Saya
+                    </div>
+                    <div class="judul-des mt-1">
+                        kelas tersedia
+                    </div>
+                    <div class="container mtb-7">
+                        <div class="row " id="container">
+                            <?php foreach ($data as $d) : ?>
 
-                            <div class="col-md d-flex justify-content-center " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="700">
-                                <div class="card card-kelas m-3 hvr-grow ">
-                                    <div class="card-kelas-img "><img src="<?php echo base_url() . '/assets/images/gambarkelas/' . $d["image_kelas"]; ?>" alt="imagescardkelas" class="img-card"></div>
-                                    <div class="card-kelas-deskripsi">
-                                        <div class="row width100 mt-2">
-                                            <div class="col text-gurubisa-kelas">GuruBisa Kelas</div>
-                                            <div class="col text-durasi-belajar">8h 17min</div>
-                                        </div>
-                                        <div class="row width100 mt-3">
-                                            <div class="col nama-kelas"><?= $d['nama_kelas'] ?></div>
-                                        </div>
-                                        <div class="row width100 mt-4">
-                                            <div class="col daftar-sekarang "> &nbsp;Akses Selamanya &nbsp;<span class="jam jam-infinite"></span>
+                                <div class="col-md d-flex justify-content-center " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="700">
+                                    <div class="card card-kelas m-3 hvr-grow ">
+                                        <div class="card-kelas-img "><img src="<?php echo base_url() . '/assets/images/gambarkelas/' . $d["image_kelas"]; ?>" alt="imagescardkelas" class="img-card"></div>
+                                        <div class="card-kelas-deskripsi">
+                                            <div class="row width100 mt-2">
+                                                <div class="col text-gurubisa-kelas">GuruBisa Kelas</div>
+                                                <div class="col text-durasi-belajar">8h 17min</div>
+                                            </div>
+                                            <div class="row width100 mt-3">
+                                                <div class="col nama-kelas"><?= $d['nama_kelas'] ?></div>
+                                            </div>
+                                            <div class="row width100 mt-4">
+                                                <div class="col daftar-sekarang "> &nbsp;Akses Selamanya &nbsp;<span class="jam jam-infinite"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
 
@@ -110,10 +113,13 @@
 
     <script>
         function move() {
+            alert('makan bang');
             var elem = document.getElementById("myBar");
             var width = 0;
             var widthg = elem.innerHTML;
             console.log(widthg);
+
+
             var id = setInterval(frame, 30);
 
             function frame() {

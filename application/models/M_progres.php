@@ -24,6 +24,11 @@ class M_progres extends CI_Model
         $hsl = $this->db->query("SELECT COUNT(progres.is_done) FROM progres JOIN daftar ON daftar.id_daftar=progres.id_daftar WHERE daftar.id_daftar=$id_daftar");
         return $hsl->result_array();
     }
+    function getJumlahBarisProgresPerUser($email, $id_daftar)
+    {
+        $hsl = $this->db->query("SELECT COUNT(progres.is_done) FROM user JOIN daftar ON user.id_user = daftar.id_user JOIN kelas ON daftar.id_kelas=kelas.id_kelas JOIN materi ON kelas.id_kelas= materi.id_kelas JOIN progres ON progres.id_materi=materi.id_materi WHERE user.email_user='$email' AND daftar.id_daftar=$id_daftar");
+        return $hsl->result_array();
+    }
     function getIsdoneProgres($id_daftar)
     {
         $hsl = $this->db->query("SELECT progres.id_materi FROM materi JOIN progres ON progres.id_materi = materi.id_materi JOIN daftar ON daftar.id_daftar=progres.id_daftar WHERE daftar.id_daftar=$id_daftar");
