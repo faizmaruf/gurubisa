@@ -25,6 +25,7 @@ class Home extends CI_Controller
     public function Logout()
     {
         $this->session->sess_destroy();
+        $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Berhasil Logout</div>');
         redirect('signin');
     }
 }

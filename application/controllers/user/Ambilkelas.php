@@ -34,6 +34,8 @@ class Ambilkelas extends CI_Controller
         endforeach;
         if ($i != '0') {
             //kelas sudah diambil
+            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Kelas Sudah Diambil </div>');
+
             redirect('user/kelassaya');
         } else { // baru bisa di ambil kelasnya
             $this->m_daftar->daftarKelas($id, $id_kelas);

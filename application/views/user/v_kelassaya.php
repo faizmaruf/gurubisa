@@ -69,7 +69,7 @@
                         Kelas Saya
                     </div>
                     <div class="judul-des mt-1">
-                        kelas tersedia
+                        kelas yang diambil
                     </div>
                     <div class="container mtb-7">
                         <div class="row " id="container">
