@@ -96,7 +96,7 @@ $kursusselesai = ($kursusselesai[0]);;
                             <?php if ($kursusselesai < 6) { ?>
                                 <!-- <a href="<?php echo site_url() . 'user/kursus' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi + 1; ?>" class="btn btn-primary hvr-grow">Materi Selanjutnya</a> -->
                             <?php } else { ?>
-                                <a href="<?php echo site_url() . 'user/sertifikat' ?>?nama_kelas=<?= $d['nama_kelas'] ?>&nama_user=<?= $user['nama_user'] ?>&email_user=<?= $user['email_user'] ?>" class="btn btn-primary hvr-grow">Cetak Sertifikat</a>
+                                <a href="<?php echo site_url() . 'user/sertifikat' ?>?nama_kelas=<?= $d['nama_kelas'] ?>&nama_user=<?= $user['nama_user'] ?>&email_user=<?= $user['email_user'] ?>" class="btn btn-primary hvr-grow btn-cetak">Cetak Sertifikat</a>
                             <?php } ?>
                         </div>
                     </div>
