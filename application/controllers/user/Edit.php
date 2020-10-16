@@ -66,30 +66,15 @@ class Edit extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center zindex-100" role="alert">Profile berhasil diupdate</div>');
                 redirect('user/edit');
             } else {
-                // $gambar = 'fotoprofil.JPG';
-                // $nama = $this->input->post('xname');
-                // $email = $this->input->post('xemail');
-                // $nuptk = $this->input->post('xnuptk');
-                // $jeniskelamin = $this->input->post('xjeniskelamin');
 
-                // $where = $this->input->post('xid');
-                // //$where = array('id' => $id);
-
-                // $data = array(
-                //     'nama_user' => $nama,
-                //     'email_user' => $email,
-                //     'nuptk_user' => $nuptk,
-                //     'image_user' => $gambar,
-                //     'jk_user' => $jeniskelamin,
-                // );
 
 
                 // $this->m_user->update_user($where, $data);
                 // $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center zindex-100" role="alert">Profile berhasil diupdate</div>');
 
-                $error = array('error' => $this->upload->display_errors());
+                //$error = array('error' => $this->upload->display_errors());
                 //echo <div class="alert alert-danger">'.$error['error'].'</div>';
-                $this->session->set_flashdata('message', '<div class="alert alert-danger">' . $error['error'] . '</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center zindex-100" role="alert">Profile Gagal diupdate</div>');
                 redirect('user/edit');
             }
         }

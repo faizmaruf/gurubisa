@@ -1,5 +1,5 @@
 <div class="container-img-user" data-aos="fade-right" data-aos-duration="1000">
-    <img class="img-user" src="<?php echo base_url() . 'assets/images/user/' . $user["image_user"]; ?>">
+    <img class="img-user rounded-circle" width="100%" height="100%" src="<?php echo base_url() . 'assets/images/user/' . $user["image_user"]; ?>">
     </img>
     <div class="nama-user mt-1">
         <?= $user['nama_user']; ?>

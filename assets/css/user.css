@@ -20,6 +20,8 @@ body {
     left: 65px;
     width: 110px;
     height: 110px;
+    border-radius: 50% !important;
+    /* object-fit: contain; */
 }
 
 .container-kembali {
@@ -34,10 +36,12 @@ body {
 .img-user {
     border: 0.5px solid #d5d6d8;
     border-style: outset;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    
+    /* width: 100%;
+    height: 100%;  */
+}
+div .rounded-circle{
+    object-fit: cover !important;
 }
 
 .nama-user {

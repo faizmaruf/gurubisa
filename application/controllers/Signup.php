@@ -48,10 +48,11 @@ class Signup extends CI_Controller
 
                 $this->m_user->simpan_user($data);
                 $emaill = $this->input->post('xemail');
+                $namaa = $this->input->post('xname');
                 // var_dump($emaill);
                 // die;
 
-                $this->_sendEmail($token, 'verify', $emaill);
+                $this->_sendEmail($token, 'verify', $emaill, $namaa);
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Registrasi Berhasil! Silakan Cek Email Anda Untuk Aktifasi.</div>');
                 redirect('Signin');
@@ -61,7 +62,7 @@ class Signup extends CI_Controller
             }
         }
     }
-    private function _sendEmail($token, $type, $emaill)
+    private function _sendEmail($token, $type, $emaill, $namaa)
     {
         $this->load->library('email');
 
@@ -76,14 +77,19 @@ class Signup extends CI_Controller
         $this->email->initialize($config);
 
         $this->email->set_newline("\r\n");
-
-
+        $encodeurl = urlencode($token);
+        $url = ('<a href="' . base_url() . 'signup/verify?email=' . $emaill . '&token=' . urlencode($token) . '">Aktifasikan !</a>');
+        $massage = file_get_contents(__DIR__ . '/massegeActivation.html');
+        $massage = str_replace("%link%", "$url", $massage);
+        $massage = str_replace("%nama%", "$namaa", $massage);
+        // var_dump($url);
+        // die;
         $this->email->from('gurubisa123@gmail.com', 'Team Kiyay dari Guru Bisa');
         $this->email->to($emaill);
 
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
-            $this->email->message('click Link ini untuk verifikasi : <a href="' . base_url() . 'Signup/verify?email=' . $emaill . '&token=' . urlencode($token) . '">Activate</a>');
+            $this->email->message($massage);
         } elseif ($type == 'sertifikat') {
             $this->email->subject('Sertifikat Kelulusan Anda');
             $this->email->message('click Link ini untuk Mendownload : <a href="' . base_url() . 'user/sertifikat?email=' . $emaill . '&token=' . urlencode($token) . '">DownLoad Sertifikat</a>');

@@ -225,6 +225,15 @@ body {
 	width: 120px;
 	height: 120px;
 	margin: 30px auto !important;
+	border-radius: 50% !important;
+
+}
+/* .img-mentorcover{
+	object-fit: cover !important;
+	border-radius: 50% !important;
+} */
+div .rounded-circle{
+	object-fit: cover !important;
 }
 
 
