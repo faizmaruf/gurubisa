@@ -41,15 +41,17 @@ class Kelassaya extends CI_Controller
         // $id_daftar = $id_daftark['id_daftar'];
         // var_dump($id);
         // die;
-
-        $persentase = $this->_persentaseKelasSelesai($email);
-        $jumMateriSelesai = $this->_jumMateriSelesai($email);
+        $kelassaya = $this->m_kelas->get_kelasByEmail($email)->result_array();
+        if ($kelassaya != null) {
+            $persentase = $this->_persentaseKelasSelesai($email);
+            $jumMateriSelesai = $this->_jumMateriSelesai($email);
+            $x['persentase'] = $persentase;
+            $x['jumMateriSelesai'] = $jumMateriSelesai;
+        }
         // var_dump($id_daftar);
         // die;
 
         $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
-        $x['persentase'] = $persentase;
-        $x['jumMateriSelesai'] = $jumMateriSelesai;
         // $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
         $x['activesidenav'] = 'Kelas Saya';
         $this->load->view('user/v_kelassaya', $x);
