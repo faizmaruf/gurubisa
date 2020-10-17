@@ -56,15 +56,7 @@ class Kelassaya extends CI_Controller
         $x['activesidenav'] = 'Kelas Saya';
         $this->load->view('user/v_kelassaya', $x);
     }
-    // private function _persentaseKelasSelesai($id_daftar)
-    // {
-    //     $kursusSelesaii = $this->m_progres->getJumlahBarisProgres($id_daftar);
-    //     $kursusSelesai = $kursusSelesaii[0]["COUNT(progres.is_done)"];
-    //     $jumlahmateri = 6;
-    //     $persentase = ($kursusSelesai / $jumlahmateri) * 100;
 
-    //     return $persentase;
-    // }
     private function _persentaseKelasSelesai($email) //bentuknya array nanti
     {
         $kelassaya = $this->m_kelas->get_kelasByEmail($email)->result_array();

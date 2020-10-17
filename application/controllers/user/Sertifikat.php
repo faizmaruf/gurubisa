@@ -73,12 +73,22 @@ class Sertifikat extends CI_Controller
         $this->email->set_newline("\r\n");
 
 
+        $url = ('<a href="' . base_url() . 'user/sertifikat/serti?email=' . $emaill . '&nama_user=' . ($nama_user) . '&nama_kelas=' . ($nama_kelas) . '">Download Sertifikat</a>');
+        $massage = file_get_contents(__DIR__ . '/mesaggeSertifikat.html');
+        $massage = str_replace("%link%", "$url", $massage);
+        $massage = str_replace("%nama%", "$nama_user", $massage);
+        $massage = str_replace("%kelas%", "$nama_kelas", $massage);
+
         $this->email->from('gurubisa123@gmail.com', 'Team Kiyay dari Guru Bisa');
         $this->email->to($emaill);
 
 
         $this->email->subject('Sertifikat Kelulusan Anda');
-        $this->email->message('click Link ini untuk Mendownload Sertifikat : <a href="' . base_url() . 'user/sertifikat/serti?email=' . $emaill . '&nama_user=' . ($nama_user) . '&nama_kelas=' . ($nama_kelas) . '">DownLoad Sertifikat</a>');
+        $this->email->message($massage);
+
+
+        // $this->email->subject('Sertifikat Kelulusan Anda');
+        // $this->email->message('click Link ini untuk Mendownload Sertifikat : <a href="' . base_url() . 'user/sertifikat/serti?email=' . $emaill . '&nama_user=' . ($nama_user) . '&nama_kelas=' . ($nama_kelas) . '">DownLoad Sertifikat</a>');
 
 
 
