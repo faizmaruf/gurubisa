@@ -70,7 +70,7 @@
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
         $config['smtp_user'] = 'gurubisa123@gmail.com';
-        $config['smtp_pass'] = 'sriwijayafc08';
+        $config['smtp_pass'] = 'Sriwijay@fc08';
         $config['smtp_port'] = 465;
         $config['mailtype'] = 'html';
         $config['charset'] = 'utf-8';

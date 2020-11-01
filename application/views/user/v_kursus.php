@@ -87,18 +87,18 @@ $kursusselesai = ($kursusselesai[0]);;
     -->
                         <iframe class="iframesize" src="<?= $video_materi; ?>?autoplay=1&rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
                     </div>
-                    <div class="d-flex justify-content-end" data-aos="zoom-out" data-aos-duration="1000">
+                    <div class="d-flex justify-content-end">
                         <!-- <div>
 
                             <a href="<?php echo site_url() . 'user/kursus/nextvideo' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi - 1; ?>" class="btn btn-outline-primary mr-2 hvr-grow">Kembali</a>
                         </div> -->
-                        <div>
-                            <?php if ($kursusselesai < 6) { ?>
-                                <!-- <a href="<?php echo site_url() . 'user/kursus' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi + 1; ?>" class="btn btn-primary hvr-grow">Materi Selanjutnya</a> -->
-                            <?php } else { ?>
-                                <a href="<?php echo site_url() . 'user/sertifikat' ?>?nama_kelas=<?= $d['nama_kelas'] ?>&nama_user=<?= $user['nama_user'] ?>&email_user=<?= $user['email_user'] ?>" class="btn btn-primary hvr-grow btn-cetak">Cetak Sertifikat</a>
-                            <?php } ?>
-                        </div>
+
+                        <?php if ($kursusselesai < 6) { ?>
+                            <!-- <a href="<?php echo site_url() . 'user/kursus' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi + 1; ?>" class="btn btn-primary hvr-grow">Materi Selanjutnya</a> -->
+                        <?php } else { ?>
+                            <a href="<?php echo site_url() . 'user/sertifikat' ?>?nama_kelas=<?= $d['nama_kelas'] ?>&nama_user=<?= $user['nama_user'] ?>&email_user=<?= $user['email_user'] ?>" class="mt-3 btn btn-primary hvr-grow btn-cetak">Cetak Sertifikat</a>
+                        <?php } ?>
+
                     </div>
                 </div>
             <?php endforeach; ?>

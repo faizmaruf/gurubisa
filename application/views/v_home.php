@@ -20,7 +20,7 @@
                         <div class="tagline">For <span class="tagline-orange">Teacher</span></div>
                         <div class="deskripsi-judul">nikmati akses kelas selamanaya di GuruBisa menjadi tenaga
                             pendidik yang berkompetensi <br>dan up to date.</div>
-                        <div class="btn-gb"><a href="#" class="button-primary-gb hvr-grow">Daftar</a></div>
+                        <div class="btn-gb"><a href="<?= site_url('signup'); ?>" class="button-primary-gb hvr-grow">Daftar</a></div>
                     </div>
                 </div>
                 <div class="img-hero-container">
@@ -91,7 +91,7 @@
     </div>
 
     <div class="container">
-        <div class="container p-3 " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500"><img class="hvr-grow" src="<?= base_url('assets/'); ?>images/Video.png" alt="images/Video" width="100%"></div>
+        <div class="container p-3 " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500"><img src="<?= base_url('assets/'); ?>images/Video.png" alt="images/Video" width="100%"></div>
     </div>
     <div class="container">
         <div class="container">
@@ -100,7 +100,7 @@
                     <div>Mari Gabung Berasama GuruBisa</div>
                     <div class="font-weight-normal">Jadilah Tenaga Pendidik Yang Profesional</div>
                 </div>
-                <div class="d-flex m-auto p-2 " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2500"><a href="user/index.html" class="button-primary-gb hvr-grow">Daftar</a>
+                <div class="d-flex m-auto p-2 " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2500"><a href="<?= site_url('signup'); ?>" class="button-primary-gb hvr-grow">Daftar</a>
                 </div>
             </div>
         </div>
