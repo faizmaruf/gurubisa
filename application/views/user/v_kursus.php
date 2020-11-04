@@ -60,6 +60,9 @@ $kursusselesai = ($kursusselesai[0]);;
                     </div>
                     <?php $i++; ?>
                 <?php endforeach; ?>
+                <div class="ml-4 mb-3 font-weight-bold">Modul</div>
+                <div class="list-sidenav-kursus hvr-grow "> <a href="<?= base_url('assets/modul/'); ?>Strategi Pembelajaran Daring.pdf" download> Download Modul</a>
+                </div>
             </div>
 
             <!-- <span class="jam jam-check pt-4" style="color: #3c4b66; font-size: large;">jika materi sudah ditandai atau diselesaikan </span>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2020 at 05:58 PM
+-- Generation Time: Nov 04, 2020 at 05:48 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -44,20 +44,21 @@ CREATE TABLE `kelas` (
   `nama_kelas` varchar(255) NOT NULL,
   `deskripsi_kelas` varchar(255) NOT NULL,
   `image_kelas` varchar(255) NOT NULL,
-  `video_kelas` varchar(255) NOT NULL
+  `video_kelas` varchar(255) NOT NULL,
+  `modul_kelas` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `kelas`
 --
 
-INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `deskripsi_kelas`, `image_kelas`, `video_kelas`) VALUES
-(3, 'Strategi Pembelajaran Daring', 'Bagaimanapun juga, pembelajaran secara daring dan jarak jauh membutuhkan bantuan teknologi yang mumpuni dan dapat diakses dengan mudah Serta menuntut tenaga pendidik untuk efektif dalam kegiatan belajar mengajar via daring.', '1.jpg', 'https://www.youtube.com/embed/3tULzriv2Vk'),
-(4, 'Membuat Media Pembelajaran Interaktif', 'Media pembelajaran interaktif adalah media presentasi yang di dalamnya terdapat hiperteks, hipermedia, sumber daya multimedia dll. Dalam kelas ini kita akan mempelajari aspek penting dalam membangun suhu belajar yang interaktif', '2.jpg', 'https://www.youtube.com/embed/GesCSpfKXqY'),
-(5, 'Microsoft Office Dasar', 'MS Office adalah program atau aplikasi kantoran yang dapat digunakan untuk mempemudah administrasi perkantorna contoh mencatat data anak dsb. ', '3.jpg', 'https://www.youtube.com/embed/eMjpJVH6Pgc'),
-(6, 'Dasar dan Majemen Pendidikan', 'ciptakan suasana belajar yang bermutu dan menyenangkan dan yang lebih penting lagi adalah dapat menciptakan peserta didik belajar cara belajar (learning how to learn) yang terbaik bagi dirinya.', '4.jpg', 'https://www.youtube.com/embed/8UExeIbhg60'),
-(7, 'Strategi Belajar Mengajar SD', 'Pahami dasar-dasar strategi pembelajaran di sekolah dasar untuk menyusun rancangan strategi pembelajaran yang efektif di sekolah dasar.', '5.jpg', 'https://www.youtube.com/embed/KQbe3utdH-w'),
-(8, 'Perkembangan Peserta Didik', 'Kajian dan penerapan psikologi perkembangan yang secara khusus mempelajarai aspek-aspek perkembangan individu yang berada pada tahap usia sekolah dan sekolah menengah.', '6.jpg', 'https://www.youtube.com/embed/zn9wENX5kQk');
+INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `deskripsi_kelas`, `image_kelas`, `video_kelas`, `modul_kelas`) VALUES
+(3, 'Strategi Pembelajaran Daring', 'Bagaimanapun juga, pembelajaran secara daring dan jarak jauh membutuhkan bantuan teknologi yang mumpuni dan dapat diakses dengan mudah Serta menuntut tenaga pendidik untuk efektif dalam kegiatan belajar mengajar via daring.', '1.jpg', 'https://www.youtube.com/embed/3tULzriv2Vk', ''),
+(4, 'Membuat Media Pembelajaran Interaktif', 'Media pembelajaran interaktif adalah media presentasi yang di dalamnya terdapat hiperteks, hipermedia, sumber daya multimedia dll. Dalam kelas ini kita akan mempelajari aspek penting dalam membangun suhu belajar yang interaktif', '2.jpg', 'https://www.youtube.com/embed/GesCSpfKXqY', ''),
+(5, 'Microsoft Office Dasar', 'MS Office adalah program atau aplikasi kantoran yang dapat digunakan untuk mempemudah administrasi perkantorna contoh mencatat data anak dsb. ', '3.jpg', 'https://www.youtube.com/embed/eMjpJVH6Pgc', ''),
+(6, 'Dasar dan Majemen Pendidikan', 'ciptakan suasana belajar yang bermutu dan menyenangkan dan yang lebih penting lagi adalah dapat menciptakan peserta didik belajar cara belajar (learning how to learn) yang terbaik bagi dirinya.', '4.jpg', 'https://www.youtube.com/embed/8UExeIbhg60', ''),
+(7, 'Strategi Belajar Mengajar SD', 'Pahami dasar-dasar strategi pembelajaran di sekolah dasar untuk menyusun rancangan strategi pembelajaran yang efektif di sekolah dasar.', '5.jpg', 'https://www.youtube.com/embed/KQbe3utdH-w', ''),
+(8, 'Perkembangan Peserta Didik', 'Kajian dan penerapan psikologi perkembangan yang secara khusus mempelajarai aspek-aspek perkembangan individu yang berada pada tahap usia sekolah dan sekolah menengah.', '6.jpg', 'https://www.youtube.com/embed/zn9wENX5kQk', '');
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,7 @@ CREATE TABLE `mentor` (
 INSERT INTO `mentor` (`id_mentor`, `nama_mentor`, `mentor_image`, `profesi_mentor`, `id_kelas`) VALUES
 (3, 'Sri Wahyuni', '2.jpg', 'Dosen Fakultas Pendidikan', 3),
 (4, 'Arie Rahmat', '4.JPG', 'Dosen Fakultas Pendidikan', 4),
-(5, 'Faiz Alauddin Ma\'ruf', '5.JPG', 'Programmer, Admin', 5),
+(5, 'Aldiko Tisya D', '5.JPG', 'Programmer, Admin', 5),
 (6, 'Aldiko Tisya', '6.JPG', 'Dosen Fakultas Pedidikan', 6),
 (7, 'Darmawan Abi Nugroho', '7.JPG', 'Profesor Pendidikan', 7),
 (8, 'Rofa Febrianti', '8.JPG', 'Psikolog, Dosen Fakultas Psikologi', 8);
@@ -242,7 +243,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `daftar`
 --
 ALTER TABLE `daftar`
-  MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `kelas`
@@ -266,19 +267,19 @@ ALTER TABLE `mentor`
 -- AUTO_INCREMENT for table `progres`
 --
 ALTER TABLE `progres`
-  MODIFY `id_progres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `id_progres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Constraints for dumped tables

@@ -63,7 +63,7 @@ class Sertifikat extends CI_Controller
         $config = array();
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-        $config['smtp_user'] = 'gurubisa123@gmail.com';
+        $config['smtp_user'] = 'gurubisa1234@gmail.com';
         $config['smtp_pass'] = 'Sriwijay@fc08';
         $config['smtp_port'] = 465;
         $config['mailtype'] = 'html';
@@ -79,7 +79,7 @@ class Sertifikat extends CI_Controller
         $massage = str_replace("%nama%", "$nama_user", $massage);
         $massage = str_replace("%kelas%", "$nama_kelas", $massage);
 
-        $this->email->from('gurubisa123@gmail.com', 'Team Kiyay dari Guru Bisa');
+        $this->email->from('gurubisa1234@gmail.com', 'Team Kiyay dari Guru Bisa');
         $this->email->to($emaill);
 
 

@@ -13,6 +13,7 @@ var container = document.getElementById('container');
 
 keyword.addEventListener('keyup', function () {
     //object ajax
+    // console.log(keyword.value);
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
@@ -20,8 +21,10 @@ keyword.addEventListener('keyup', function () {
             container.innerHTML = xhr.responseText;
         }
     }
-    xhr.open('GET', 'ajax/coba.txt', true);
+    xhr.open('GET', '../Gurubisa/assets/ajax/kelas.php?keyword=' + keyword.value, true);
+    // xhr.open('GET', '../Gurubisa/controllers/Carikelas.php/index?keyword=' + keyword.value, true);
     xhr.send();
 
 
 })
+
