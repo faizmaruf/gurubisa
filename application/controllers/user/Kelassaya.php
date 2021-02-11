@@ -65,7 +65,7 @@ class Kelassaya extends CI_Controller
             $id_kelas = $k['id_kelas'];
             $id_daftarrr = $this->m_daftar->getIdDaftarByEmailAndIdkelas($email, $id_kelas);
             $id_daftar = $id_daftarrr[0]['id_daftar'];
-            $kursusSelesaii = $this->m_progres->getJumlahBarisProgresPerUser($email, $id_daftar);
+            $kursusSelesaii = $this->m_progres->getJumlahBarisProgresPerUser($id_daftar);
             $kursusSelesai = $kursusSelesaii[0]["COUNT(progres.is_done)"];
             $jumlahmateri = 6;
             $persentase = (int)(($kursusSelesai / $jumlahmateri) * 100);
@@ -83,12 +83,12 @@ class Kelassaya extends CI_Controller
             $id_kelas = $k['id_kelas'];
             $id_daftarrr = $this->m_daftar->getIdDaftarByEmailAndIdkelas($email, $id_kelas);
             $id_daftar = $id_daftarrr[0]['id_daftar'];
-            $kursusSelesaii = $this->m_progres->getJumlahBarisProgresPerUser($email, $id_daftar);
+            $kursusSelesaii = $this->m_progres->getJumlahBarisProgresPerUser($id_daftar);
             $kursusSelesai = $kursusSelesaii[0]["COUNT(progres.is_done)"];
 
             $jumMateriSelesai[] = $kursusSelesai;
         }
-        // var_dump($jumMateriSelesai);
+        // var_dump($id_daftar);
         // die;
         return $jumMateriSelesai;
     }
