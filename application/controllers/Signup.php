@@ -69,7 +69,7 @@ class Signup extends CI_Controller
         $config = array();
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-        $config['smtp_user'] = 'gurubisa1234@gmail.com';
+        $config['smtp_user'] = 'gurubisa123456@gmail.com';
         $config['smtp_pass'] = 'Sriwijay@fc08';
         $config['smtp_port'] = 465;
         $config['mailtype'] = 'html';
@@ -84,7 +84,7 @@ class Signup extends CI_Controller
         $massage = str_replace("%nama%", "$namaa", $massage);
         // var_dump($url);
         // die;
-        $this->email->from('gurubisa1234@gmail.com', 'Team Kiyay dari Guru Bisa');
+        $this->email->from('gurubisa123456@gmail.com', 'Team Kiyay dari Guru Bisa');
         $this->email->to($emaill);
 
         if ($type == 'verify') {

@@ -33,6 +33,11 @@
                         <div class="mt-3 mb-3 d-flex">
                             <button type="submit" class="button-primary-daftar hvr-grow">Masuk</button>
                         </div>
+                        <div class="d-flex">
+                            <div class="m-auto soal">
+                                Belum punya akun ? Daftar <a href="<?= site_url('signup') ?>"> disini</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

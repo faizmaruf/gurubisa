@@ -48,10 +48,14 @@ $kursusselesai = ($kursusselesai[0]);
 
                 <?php endforeach; ?>
                 <div class="ml-4 mb-3 font-weight-bold">Submission</div>
-                <div class="list-sidenav-kursus hvr-grow "> <a href="<?= site_url('user/Submission'); ?>?id_kelas=<?= $d['id_kelas'] ?>">Selesaikan Submission</a>
+                <div class="list-sidenav-kursus hvr-grow active-kursus"> <a href="<?= site_url('user/Submission'); ?>?id_kelas=<?= $d['id_kelas'] ?>">Selesaikan Submission</a><?php
+                                                                                                                                                                                if ($ceklistSubmission >= 60) {
+                                                                                                                                                                                    echo '<span class="jam jam-check pt-4" style="color: #3c4b66; font-size: large;"></span>';
+                                                                                                                                                                                }
+                                                                                                                                                                                ?>
                 </div>
                 <div class="ml-4 mb-3 font-weight-bold">Modul</div>
-                <div class="list-sidenav-kursus hvr-grow "> <a href="<?= base_url('assets/modul/'); ?>Strategi Pembelajaran Daring.pdf" download> Download Modul</a>
+                <div class="list-sidenav-kursus hvr-grow "> <a href="<?= base_url('assets/modul/'); ?>Microsoft Office Dasar.pdf" download> Download Modul</a>
                 </div>
             </div>
 
@@ -66,11 +70,15 @@ $kursusselesai = ($kursusselesai[0]);
             <!-- Page content -->
             <div class="main-kursus">
                 <div class="container">
+
+                    <div class="judul-atas">
+                        <?= $this->session->flashdata('message'); ?>
+                    </div>
                     <div class="judul-atas">
                         Submission
                     </div>
                     <div class="judul-des mt-1">
-                        Terdapat beberapa soal di kelas <?= $d['nama_kelas']; ?> dengan menyelesaikan semua video materi& minimal nilai 75% anda bisa Mendapatkan sertifikat.
+                        Terdapat beberapa soal di kelas <?= $d['nama_kelas']; ?> dengan menyelesaikan semua video materi& minimal nilai 60% anda bisa Mendapatkan sertifikat.
                         <br>Nama Mentor : <?= $d['nama_mentor']; ?>
                     </div>
 
@@ -84,7 +92,7 @@ $kursusselesai = ($kursusselesai[0]);
                         <?php $no = 1;
                         $index = 0; ?>
                         <?php foreach ($soal as $s) : ?>
-                            <div class="container mt-3">
+                            <div class="container mt-3 soal">
                                 <div class="d-flex">
                                     <div class="d-flex "><?= $no; ?>. </div>
                                     <?php $no++; ?>
@@ -105,7 +113,7 @@ $kursusselesai = ($kursusselesai[0]);
                         <?php endforeach; ?>
 
                         <div class="mt-3 mb-3 d-flex">
-                            <button type="submit" name="submit" class="button-primary-daftar hvr-grow">Kirim Jawaban</button>
+                            <button type="submit" class="button-primary-daftar hvr-grow">Kirim Jawaban</button>
                         </div>
                     </form>
                     <div class="d-flex justify-content-end">
@@ -114,11 +122,7 @@ $kursusselesai = ($kursusselesai[0]);
                             <a href="<?php echo site_url() . 'user/kursus/nextvideo' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi - 1; ?>" class="btn btn-outline-primary mr-2 hvr-grow">Kembali</a>
                         </div> -->
 
-                        <?php if ($kursusselesai < 6) { ?>
-                            <!-- <a href="<?php echo site_url() . 'user/kursus' ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $id_materi + 1; ?>" class="btn btn-primary hvr-grow">Materi Selanjutnya</a> -->
-                        <?php } else { ?>
-                            <a href="<?php echo site_url() . 'user/sertifikat' ?>?nama_kelas=<?= $d['nama_kelas'] ?>&nama_user=<?= $user['nama_user'] ?>&email_user=<?= $user['email_user'] ?>" class="mt-3 btn btn-primary hvr-grow btn-cetak">Cetak Sertifikat</a>
-                        <?php } ?>
+
 
                     </div>
                 </div>

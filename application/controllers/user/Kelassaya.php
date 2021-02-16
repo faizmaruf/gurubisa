@@ -14,6 +14,7 @@ class Kelassaya extends CI_Controller
         $this->load->model('m_daftar');
         $this->load->model('m_materi');
         $this->load->model('m_progres');
+        $this->load->model('m_submission');
         $this->load->library('session');
         $this->load->library('upload');
     }
@@ -50,7 +51,6 @@ class Kelassaya extends CI_Controller
         }
         // var_dump($id_daftar);
         // die;
-
         $x['data'] = $this->m_kelas->get_kelasByEmail($email)->result_array();
         // $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
         $x['activesidenav'] = 'Kelas Saya';

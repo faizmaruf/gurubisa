@@ -27,10 +27,12 @@ class Submission extends CI_Controller
         $id_kelas = $id_kelass['id_kelas'];
         if ($id_kelas == null) {
             $id_kelas; // baru nyampek sini
+            redirect('user/kelassaya');
         }
         $soal = $this->m_submission->get_all_soal($id_kelas);
         if (empty($soal)) {
-            echo "Tidak ada submussion";
+            $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Mohon untuk mengambil kelas "Microsoft office Dasar" dikatalog kelas agar dapat mencoba fitur Submission</div>');
+            redirect('user/kelassaya');
         }
 
         // var_dump($soal);
@@ -115,7 +117,8 @@ class Submission extends CI_Controller
         $x['kursusselesai'] = $kursusSelesai;
         $email = $this->session->userdata('email_user');
         $x['user'] = $this->m_user->getUserByEmail($email);
-
+        $ceklis = $this->m_daftar->getNilaiUser($id_daftar)->result_array();
+        $x['ceklistSubmission'] = $ceklis[0]["nilai"];
 
         // $x['progres'] = $this->m_progres->get_progresPersentase($id, $id_daftar);
         $x['activesidenav'] = 'Kelas Saya';
@@ -128,10 +131,18 @@ class Submission extends CI_Controller
         $id_kelas = $this->input->post('id_kelas');
         $jawaban = $this->input->post('jawaban'); //jawaban user
         $scoreDiraih = $this->_cekScore($jawaban, $id_kelas); // score diraih dari komputasi di private function _cekScore
+        $namakelass = $this->db->get_where('kelas', array('id_kelas' => $id_kelas))->result_array();
+        $namakelas = $namakelass[0]['nama_kelas'];
 
         //set nilai user
         $this->m_daftar->setNilaiUser($id_daftar, $scoreDiraih);
-        die;
+        if ($scoreDiraih >= 60) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Selamat anda lulus kelas ' . $namakelas . ' dengan score ' . $scoreDiraih . ', Silahkan Download Sertifikat dengan masuk kembali ke kelas.</div>');
+            redirect('user/kelassaya');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger d-flex justify-content-center" role="alert" data-aos="fade-down" data-aos-duration="2000">Score anda ' . $scoreDiraih . ' belum mencapai 60 % silahkan pelajari lagi dan ulang submission dikelas ' . $namakelas . '</div>');
+            redirect('user/kelassaya');
+        }
     }
 
 

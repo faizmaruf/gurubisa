@@ -21,8 +21,9 @@ keyword.addEventListener('keyup', function () {
             container.innerHTML = xhr.responseText;
         }
     }
-    xhr.open('GET', '../Gurubisa/assets/ajax/kelas.php?keyword=' + keyword.value, true);
-    // xhr.open('GET', '../Gurubisa/controllers/Carikelas.php/index?keyword=' + keyword.value, true);
+    // xhr.open('GET', '../Gurubisa/assets/ajax/kelas.php?keyword=' + keyword.value, true);
+    xhr.open('GET', '../Gurubisa/application/views/kelas.php?keyword=' + keyword.value, true);
+    //  xhr.open('GET', '../Gurubisa/controllers/Carikelas.php/index?keyword=' + keyword.value, true);
     xhr.send();
 
 

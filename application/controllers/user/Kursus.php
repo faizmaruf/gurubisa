@@ -99,6 +99,11 @@ class Kursus extends CI_Controller
         $x['data'] = $this->m_kelas->get_kelasByIdDaftar($id_daftar);
 
         // $is_done = $this->m_progres->getIsdoneProgres($id_materi);
+        $ceklis = $this->m_daftar->getNilaiUser($id_daftar)->result_array();
+        $x['ceklistSubmission'] = $ceklis[0]["nilai"];
+
+        $x['idDaftar'] = $id_daftar;
+
         $x['activesidenav'] = $id_materi;
         $x['video_materi'] = $video_materi;
         $x['video_kelas'] = $video_kelas;

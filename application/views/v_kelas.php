@@ -76,8 +76,7 @@
 
 
 
-    <!-- <script src="<?php echo base_url() ?>assets/js/custom.js"></script> -->
-    <!-- <script src="Gurubisa/assets/js/custom.js"></script> -->
+
     <!-- <script src="<?= base_url('assets/js/custom.js'); ?>"></script> -->
     <!-- <script src="js/bootstrap.js"></script> -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
