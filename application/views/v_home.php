@@ -18,7 +18,7 @@
                     <div class="jumbotron-gb" data-aos="fade-up" data-aos-duration="1000">
                         <div class="judul">GuruBisa</div>
                         <div class="tagline">For <span class="tagline-orange">Teacher</span></div>
-                        <div class="deskripsi-judul">nikmati akses kelas selamanaya di GuruBisa menjadi tenaga
+                        <div class="deskripsi-judul">Nikmati akses kelas selamanaya di GuruBisa menjadi tenaga
                             pendidik yang berkompetensi <br>dan up to date.</div>
                         <div class="btn-gb"><a href="<?= site_url('signup'); ?>" class="button-primary-gb hvr-grow">Daftar</a></div>
                     </div>

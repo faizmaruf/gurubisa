@@ -32,7 +32,7 @@
                     <div class="row " id="container">
                         <?php foreach ($data as $d) : ?>
 
-                            <div class="col-md d-flex justify-content-center " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="700">
+                            <div class="col-md d-flex justify-content-center ">
                                 <div class="card card-kelas m-3 hvr-grow ">
                                     <div class="card-kelas-img "><img src="<?php echo base_url() . '/assets/images/gambarkelas/' . $d["image_kelas"]; ?>" alt="imagescardkelas" class="img-card"></div>
                                     <div class="card-kelas-deskripsi">

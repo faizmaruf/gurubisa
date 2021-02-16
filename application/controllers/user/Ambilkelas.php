@@ -23,7 +23,8 @@ class Ambilkelas extends CI_Controller
         $email = $this->session->userdata('email_user');
         $id_user = $this->m_user->getIdUserByEmail($email);
         $id = $id_user['id_user'];
-
+        //nilai di inisialisasi diawal bahwa nilai = 0
+        $nilai = 0;
         //cek apakah kelas sudah pernah diambil apa belum
         $cekIsDoneGetClass = $this->m_kelas->get_kelasByEmail($email)->result_array();
         $i = 0;
@@ -38,7 +39,7 @@ class Ambilkelas extends CI_Controller
 
             redirect('user/kelassaya');
         } else { // baru bisa di ambil kelasnya
-            $this->m_daftar->daftarKelas($id, $id_kelas);
+            $this->m_daftar->daftarKelas($id, $id_kelas, $nilai);
             $x['user'] = $this->m_user->getUserByEmail($email);
 
             $x['activesidenav'] = 'Katalog Kelas';

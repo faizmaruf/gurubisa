@@ -3,22 +3,8 @@
 
 <!-- head -->
 <?php
-//var_dump($activesidenav);
-// var_dump($is_done->result_array(['materi']));
-// echo "<br>";
-// foreach ($is_done as $s) :
-//var_dump($is_done);
-// endforeach;
 
-// $i = 0;
-// foreach ($is_done as $row) :
-//     echo $is_done[$i]['id_materi'];
-//     $i++;
-// endforeach;
-// var_dump($activesidenav);
-$kursusselesai = ($kursusselesai[0]);;
-// var_dump($video_materi);
-// die;
+$kursusselesai = ($kursusselesai[0]);
 
 ?>
 <?php $this->load->view('user/v_head'); ?>
@@ -62,7 +48,7 @@ $kursusselesai = ($kursusselesai[0]);;
 
                 <?php endforeach; ?>
                 <div class="ml-4 mb-3 font-weight-bold">Submission</div>
-                <div class="list-sidenav-kursus hvr-grow "> <a href="<?= site_url('user/Submission'); ?>?id_kelas=<?= $d['id_kelas'] ?>&id_user=<?= $user['id_user'] ?>&id_materi=<?= $m['id_materi']; ?>">Selesaikan Submission</a>
+                <div class="list-sidenav-kursus hvr-grow "> <a href="<?= site_url('user/Submission'); ?>?id_kelas=<?= $d['id_kelas'] ?>">Selesaikan Submission</a>
                 </div>
                 <div class="ml-4 mb-3 font-weight-bold">Modul</div>
                 <div class="list-sidenav-kursus hvr-grow "> <a href="<?= base_url('assets/modul/'); ?>Strategi Pembelajaran Daring.pdf" download> Download Modul</a>
@@ -81,19 +67,47 @@ $kursusselesai = ($kursusselesai[0]);;
             <div class="main-kursus">
                 <div class="container">
                     <div class="judul-atas">
-                        <?= $d['nama_kelas']; ?>
+                        Submission
                     </div>
                     <div class="judul-des mt-1">
-                        6 materi tersedia - <?= $d['nama_mentor']; ?>
+                        Terdapat beberapa soal di kelas <?= $d['nama_kelas']; ?> dengan menyelesaikan semua video materi& minimal nilai 75% anda bisa Mendapatkan sertifikat.
+                        <br>Nama Mentor : <?= $d['nama_mentor']; ?>
                     </div>
 
                 </div>
                 <div class="container d-flex flex-column">
-                    <div class="content-video m-auto">
-                        <!-- ?autoplay=1&rel=0&modestbranding=1&showinfo=0
-    -->
-                        <iframe class="iframesize" src="<?= $video_materi; ?>?autoplay=1&rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
-                    </div>
+                    <form action="<?= site_url('user/submission/nilaiSubmission'); ?>" method="post" enctype="multipart/form-data">
+                        <?php $idkelas = ($data[0]["id_kelas"]); ?>
+                        <?php $iddaftar = $idDaftar; ?>
+                        <input type="hidden" name="id_kelas" value="<?= $idkelas; ?>">
+                        <input type="hidden" name="id_daftar" value="<?= $iddaftar; ?>">
+                        <?php $no = 1;
+                        $index = 0; ?>
+                        <?php foreach ($soal as $s) : ?>
+                            <div class="container mt-3">
+                                <div class="d-flex">
+                                    <div class="d-flex "><?= $no; ?>. </div>
+                                    <?php $no++; ?>
+                                    <div class="d-flex w-100 flex-column">
+                                        <div class="d-flex container"><?= $s['soal']; ?></div>
+                                        <div class="d-flex container">
+                                            <div class="d-flex w-100 flex-column">
+                                                <div class="d-block">a. <input type="radio" value="a" name="jawaban[0][<?= $index; ?>]" required> <?= $s['jawab_a']; ?></div>
+                                                <div class="d-block">b. <input type="radio" value="b" name="jawaban[0][<?= $index; ?>]" required> <?= $s['jawab_b']; ?></div>
+                                                <div class="d-block">c. <input type="radio" value="c" name="jawaban[0][<?= $index; ?>]" required> <?= $s['jawab_c']; ?></div>
+                                                <div class="d-block">d. <input type="radio" value="d" name="jawaban[0][<?= $index; ?>]" required> <?= $s['jawab_d']; ?></div>
+                                            </div>
+                                            <?php $index++; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+
+                        <div class="mt-3 mb-3 d-flex">
+                            <button type="submit" name="submit" class="button-primary-daftar hvr-grow">Kirim Jawaban</button>
+                        </div>
+                    </form>
                     <div class="d-flex justify-content-end">
                         <!-- <div>
 
