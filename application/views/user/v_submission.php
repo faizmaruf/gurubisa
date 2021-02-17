@@ -22,7 +22,7 @@ $kursusselesai = ($kursusselesai[0]);
 
 
             <!-- Side navigation -->
-            <div class="sidenav-kursus border-info shadow-lg d-flex justify-content-center" data-aos="fade-right" data-aos-duration="1000">
+            <div class="sidenav-kursus border-info shadow-lg d-flex justify-content-center mt-10" data-aos="fade-right" data-aos-duration="1000">
 
                 <div class="ml-4 mb-3 font-weight-bold">Persiapan</div>
                 <div class="list-sidenav-kursus hvr-grow "> <a href="#"> Trailler kelas</a><span class="jam jam-check pt-4" style="color: #3c4b66; font-size: large;"></span>

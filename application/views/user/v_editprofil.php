@@ -17,7 +17,7 @@
 
 
         <!-- Page content -->
-        <div class="main d-flex flex-column">
+        <div class="main">
             <?= $this->session->flashdata('message'); ?>
             <div class="container">
                 <div class="judul-atas">

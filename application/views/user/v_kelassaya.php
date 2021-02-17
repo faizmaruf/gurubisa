@@ -52,7 +52,7 @@
                                     <?php } ?>
                                 </div>
 
-                                <div class="judul-des mt-2">
+                                <div class="judul-des-p hidden-keluar mt-2">
                                     <?= $jumMateriSelesai[$i]; ?> dari 6 materi telah selesai
                                 </div>
                             </div>
@@ -96,6 +96,10 @@
 
 
                             <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="hvr-grow display-keluar m-auto"> <a href="<?= site_url('user/home/logout'); ?>"><span class="jam jam-log-out"></span> Log Out</a>
                         </div>
                     </div>
                 </div>

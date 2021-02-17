@@ -26,7 +26,7 @@
                     Katalog Kelas
                 </div>
                 <div class="judul-des mt-1">
-                    6 kelas tersedia
+                    6 kelas tersedia - Silahkan Ambil Kelas Microsoft Office Dasar
                 </div>
                 <div class="container mtb-7">
                     <div class="row " id="container">

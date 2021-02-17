@@ -81,7 +81,7 @@ $profesi_mentor = $data[8];
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
-                            <div class="d-flex">
+                            <div class="d-flex mb-5">
                                 <a href="<?= site_url('user/Ambilkelas'); ?>?id_kelas=<?= $id_kelas ?>" class=" button-primary-gb m-auto hvr-grow">
                                     Ikuti Kelas
                                 </a>

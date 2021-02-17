@@ -171,6 +171,10 @@ body {
 	color: #475677;
 	font-weight: lighter;
 }
+.text-rekomendasi-bold {
+
+	font-weight: bold;
+}
 
 .text-mentor {
 	font-family: 'Roboto', sans-serif;
@@ -180,10 +184,6 @@ body {
 	margin: auto;
 }
 
-.text-rekomendasi-bold {
-
-	font-weight: bold;
-}
 
 
 .button-lebih-banyak {
@@ -579,6 +579,21 @@ span i {
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+	.judul {
+		font-size: 48px;
+	}
+	
+	.tagline {
+		font-size: 34px;
+	}
+
+	
+	.deskripsi-judul {
+		font-size: 12px;
+	}
+	.text-rekomendasi {
+		font-size: 24px;
+	}
 	.soal {
 		font-size: 12px;
 	}
@@ -655,19 +670,19 @@ span i {
 
 	.mengapa-harus {
 
-		font-size: 26px;
+		font-size: 22px;
 
 
 	}
 
 	.memilih-kami {
-		font-size: 46px;
+		font-size: 32px;
 
 	}
 
 	.deskripsi-mengapa {
 
-		font-size: 12px;
+		font-size: 11px;
 
 	}
 
@@ -683,6 +698,8 @@ span i {
 
 	.footer {
 		height: 120px;
+		font-size: 12px;
+		font-weight: normal;
 	}
 
 }
